@@ -27,9 +27,26 @@ subtitle = ""
   description = "100%"  
   
 [[feature]]
-  icon = "camera-retro"
+  icon = "chart-bar"
   icon_pack = "fas"
-  name = "Photography"
-  description = "10%"
+  name = "Operations Research"
+  description = "80%"
 
+[[feature]]
+  icon = "chart-pie"
+  icon_pack = "fas"
+  name = "SAS"
+  description = "30%"
+  
+[[feature]]
+  icon = "python"
+  icon_pack = "fab"
+  name = "Python"
+  description = "40%"
+  
+[[feature]]
+  icon = "database"
+  icon_pack = "fas"
+  name = "SQL"
+  description = "70%"
 +++
