@@ -17,7 +17,7 @@ baseurl = "/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/"
 copyright = "&copy; 2019"
 
 # Enable analytics by entering your Google Analytics tracking ID
-googleAnalytics = ""
+googleAnalytics = "UA-8787445-7"
 
 ############################
 ## Advanced options below ##
