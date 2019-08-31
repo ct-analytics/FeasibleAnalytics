@@ -26,12 +26,24 @@ subtitle = ""
     tag = "*"
   
   [[content.filter_button]]
-    name = "Deep Learning"
-    tag = "Deep Learning"
+    name = "MITRE"
+    tag = "MITRE"
   
   [[content.filter_button]]
+    name = "Epsilon"
+    tag = "Epsilon"
+    
+  [[content.filter_button]]
+    name = "IBM"
+    tag = "IBM"
+    
+  [[content.filter_button]]
+    name = "SAIC"
+    tag = "SAIC"
+    
+  [[content.filter_button]]
     name = "Other"
-    tag = "Demo"
+    tag = "MLB"
 
 [design]
   # Choose how many columns the section has. Valid values: 1 or 2.
@@ -42,7 +54,7 @@ subtitle = ""
   #   2 = Compact
   #   3 = Card
   #   5 = Showcase
-  view = 3
+  view = 2
 
   # For Showcase view, flip alternate rows?
   flip_alt_rows = false
