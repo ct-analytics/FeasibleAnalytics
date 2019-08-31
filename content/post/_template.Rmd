@@ -1,0 +1,13 @@
+---
+title: "TitleName"
+author: "Christopher Teixeira"
+date: 2015-10-08
+categories: []
+tags: ["R"]
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE,
+                      warning=FALSE, 
+                      message=FALSE)
+```
