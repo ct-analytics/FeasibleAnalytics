@@ -6,11 +6,11 @@ summary: Built a tool to determine changes to cost and schedule
 date: "2016-04-27T00:00:00Z"
 
 image:
-  caption: Opioid Pills
+  caption: ""
   focal_point: Smart
 
 tags:
-- Discrete Event Simulation
+- Operations Research
 - MITRE
 - Data Visualization
 
