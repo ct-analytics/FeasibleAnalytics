@@ -13,6 +13,7 @@ tags:
 - Data Analytics
 - MITRE
 - Data Visualization
+- Operations Research
 
 ---
 
