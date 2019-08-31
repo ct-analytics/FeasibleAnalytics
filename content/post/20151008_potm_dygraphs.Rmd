@@ -1,0 +1,149 @@
+---
+title: "Package of the Month: dygraphs"
+author: "Christopher Teixeira"
+date: 2015-10-08
+categories: []
+tags: ["R", "Data Visualization"]
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE,
+                      warning=FALSE, 
+                      message=FALSE)
+```
+
+This post will give you some code snippets for using the dygraphs javascript package through R. This package is great for visualizing and interacting with time series data.
+
+First, let's get some data and load the package. Being a big Red Sox fan, let's grab David Ortiz's home run totals for each season in his career out of the Lahman package. In order to use the dygraphs package, we need our data to be an XTS object. We'll order the home run totals by year and then create the xts object to show yearly totals. 
+
+At last, we can draw out a baseline graph to start out with.
+
+```{r loaddata}
+library(xts)
+library(Lahman)
+library(dygraphs)
+library(dplyr)
+library(lubridate)
+
+# Get David Ortiz's ID
+data("Master")
+david.ortiz <- Master %>% filter(nameFirst=="David",nameLast=="Ortiz") %>% select(playerID) %>% as.character
+
+# Get his hitting data
+do <- Batting %>%
+  filter(playerID==david.ortiz) %>%
+  arrange(yearID) 
+
+do.xts <- xts(x=do$HR,order.by=ymd(paste(do$yearID,"11","01",sep="-")))
+
+# Create the plot
+dygraph(do.xts)
+```
+
+Well that was pretty easy. It automatically puts the interactive capabilities. Let's start to clean it up a bit though by adjusting the series label and removing the vertical lines.
+
+```{r initialoptions}
+
+# Add in a time selector
+dygraph(do.xts) %>% dyRangeSelector()
+
+# Adjust the label
+dygraph(do.xts) %>% 
+  dyRangeSelector() %>% 
+  dySeries("V1", label = "David Ortiz") 
+
+# Remove verticle lines
+dygraph(do.xts) %>% 
+  dyRangeSelector() %>% 
+  dySeries("V1", label = "David Ortiz") %>%
+  dyAxis("x", drawGrid = FALSE)
+
+```
+
+Now let's fill in the area under the line, add markers to each point, and label the Y axis.
+
+```{r additionaloptions}
+
+# Fill in the graph
+dygraph(do.xts) %>% dyRangeSelector() %>% dySeries("V1", label = "David Ortiz") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4)
+
+# Add markers
+dygraph(do.xts) %>% dyRangeSelector() %>% dySeries("V1", label = "David Ortiz") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2)
+
+# Add in Y axis label
+dygraph(do.xts) %>% 
+  dyRangeSelector() %>% 
+  dySeries("V1", label = "David Ortiz") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y", label="Homeruns") %>%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2)
+
+```
+
+Let's start to explain some of the events in David's career. We can add a vertical line for the date he signed with the Red Sox and being the biased fan, let's zoom in on years he played with the Red Sox. Finally, let's mark each point for years he participated in the MLB All Star game.
+
+```{r markup}
+
+# Add in event for traded
+dygraph(do.xts) %>% 
+  dyRangeSelector() %>% 
+  dySeries("V1", label = "David Ortiz") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y", label="Homeruns") %>%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %>%
+  dyEvent(date = "2003-01-22", "Signed with the Red Sox", labelLoc = "top")
+
+# Preselect only years he played for the redsox
+dygraph(do.xts) %>% 
+  dyRangeSelector(dateWindow = c("2003-01-23", "2014-11-01")) %>% 
+  dySeries("V1", label = "David Ortiz") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y", label="Homeruns") %>%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %>%
+  dyEvent(date = "2003-01-22", "Signed with the Red Sox", labelLoc = "top")
+
+#A nnotate on all star game appearances
+dygraph(do.xts) %>% 
+  dyRangeSelector(dateWindow = c("2003-01-23", "2014-11-01")) %>% 
+  dySeries("V1", label = "David Ortiz") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y", label="Homeruns") %>%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %>%
+  dyAnnotation("2004-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyAnnotation("2005-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyAnnotation("2006-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyAnnotation("2007-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyAnnotation("2008-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyAnnotation("2010-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyAnnotation("2011-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyAnnotation("2012-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyAnnotation("2013-11-01", text="AS", tooltip="All Star Game Appearance") %>%
+  dyEvent(x = "2003-01-22", "Signed with the Red Sox", labelLoc = "top")
+
+```
+
+Finally, let's add in a second player, Albert Pujols. 
+
+```{r anotherplayer}
+
+#Let's add in another player
+albert.pujols <- Master %>% filter(nameFirst=="Albert",nameLast=="Pujols") %>% select(playerID) %>% as.character
+ap <- Batting %>%
+  filter(playerID==albert.pujols) %>%
+  arrange(yearID) 
+ap.xts <- xts(x=ap$HR,order.by=ymd(paste(ap$yearID,"11","01",sep="-")))
+
+dygraph(cbind(do.xts,ap.xts)) %>% 
+  dyRangeSelector() %>% 
+  dySeries("do.xts", label = "David Ortiz") %>%
+  dySeries("ap.xts", label = "Albert Pujols") %>%
+  dyAxis("x", drawGrid = FALSE) %>%
+  dyAxis("y", label="Homeruns") %>%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %>%
+  dyLegend(labelsSeparateLines = T)
+
+```
