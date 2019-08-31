@@ -36,11 +36,11 @@ subtitle = ""
   [[content.filter_button]]
     name = "IBM"
     tag = "IBM"
-    
+
   [[content.filter_button]]
     name = "SAIC"
     tag = "SAIC"
-    
+
   [[content.filter_button]]
     name = "Other"
     tag = "MLB"
