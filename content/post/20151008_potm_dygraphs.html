@@ -6,25 +6,25 @@ categories: []
 tags: ["R", "Data Visualization"]
 ---
 
-<script src="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
-<script src="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/jquery/jquery.min.js"></script>
-<link href="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/dygraphs/dygraph.css" rel="stylesheet" />
-<script src="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/dygraphs/dygraph-combined.js"></script>
-<script src="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/dygraphs/shapes.js"></script>
-<script src="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/moment/moment.js"></script>
-<script src="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/moment-timezone/moment-timezone-with-data.js"></script>
-<script src="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/moment-fquarter/moment-fquarter.min.js"></script>
-<script src="/Users/christopherteixeira/Google Drive/R/FeasibleAnalytics/public/rmarkdown-libs/dygraphs-binding/dygraphs.js"></script>
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/jquery/jquery.min.js"></script>
+<link href="/rmarkdown-libs/dygraphs/dygraph.css" rel="stylesheet" />
+<script src="/rmarkdown-libs/dygraphs/dygraph-combined.js"></script>
+<script src="/rmarkdown-libs/dygraphs/shapes.js"></script>
+<script src="/rmarkdown-libs/moment/moment.js"></script>
+<script src="/rmarkdown-libs/moment-timezone/moment-timezone-with-data.js"></script>
+<script src="/rmarkdown-libs/moment-fquarter/moment-fquarter.min.js"></script>
+<script src="/rmarkdown-libs/dygraphs-binding/dygraphs.js"></script>
 
 
 <p>This post will give you some code snippets for using the dygraphs javascript package through R. This package is great for visualizing and interacting with time series data.</p>
 <p>First, let’s get some data and load the package. Being a big Red Sox fan, let’s grab David Ortiz’s home run totals for each season in his career out of the Lahman package. In order to use the dygraphs package, we need our data to be an XTS object. We’ll order the home run totals by year and then create the xts object to show yearly totals.</p>
 <p>At last, we can draw out a baseline graph to start out with.</p>
-<pre class="r"><code>library(xts)
-library(Lahman)
-library(dygraphs)
-library(dplyr)
-library(lubridate)
+<pre class="r"><code>suppressPackageStartupMessages(suppressWarnings(library(xts)))
+suppressPackageStartupMessages(suppressWarnings(library(Lahman)))
+suppressPackageStartupMessages(suppressWarnings(library(dygraphs)))
+suppressPackageStartupMessages(suppressWarnings(library(dplyr)))
+suppressPackageStartupMessages(suppressWarnings(library(lubridate)))
 
 # Get David Ortiz&#39;s ID
 data(&quot;Master&quot;)
@@ -89,9 +89,9 @@ dygraph(do.xts) %&gt;%
   dyAxis(&quot;x&quot;, drawGrid = FALSE) %&gt;%
   dyAxis(&quot;y&quot;, label=&quot;Homeruns&quot;) %&gt;%
   dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&gt;%
-  dyEvent(date = &quot;2003-01-22&quot;, &quot;Signed with the Red Sox&quot;, labelLoc = &quot;top&quot;)</code></pre>
+  dyEvent(x = &quot;2003-01-22&quot;, &quot;Signed with the Red Sox&quot;, labelLoc = &quot;top&quot;)</code></pre>
 <div id="htmlwidget-8" style="width:672px;height:480px;" class="dygraphs html-widget"></div>
-<script type="application/json" data-for="htmlwidget-8">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawGrid":false,"drawAxis":true},"y":{"drawAxis":true}},"series":{"David Ortiz":{"axis":"y"}},"labels":["year","David Ortiz"],"legend":"auto","retainDateWindow":false,"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel","ylabel":"Homeruns","stackedGraph":false,"fillGraph":true,"fillAlpha":0.4,"stepPlot":false,"drawPoints":true,"pointSize":2,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false},"scale":"yearly","annotations":[],"shadings":[],"events":[{"pos":"2003-01-22T00:00:00.000Z","label":null,"labelLoc":"top","color":"black","strokePattern":[7,3],"axis":"x"}],"format":"date","data":[["1997-11-01T00:00:00.000Z","1998-11-01T00:00:00.000Z","1999-11-01T00:00:00.000Z","2000-11-01T00:00:00.000Z","2001-11-01T00:00:00.000Z","2002-11-01T00:00:00.000Z","2003-11-01T00:00:00.000Z","2004-11-01T00:00:00.000Z","2005-11-01T00:00:00.000Z","2006-11-01T00:00:00.000Z","2007-11-01T00:00:00.000Z","2008-11-01T00:00:00.000Z","2009-11-01T00:00:00.000Z","2010-11-01T00:00:00.000Z","2011-11-01T00:00:00.000Z","2012-11-01T00:00:00.000Z","2013-11-01T00:00:00.000Z","2014-11-01T00:00:00.000Z","2015-11-01T00:00:00.000Z","2016-11-01T00:00:00.000Z"],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],"fixedtz":false,"tzone":"UTC"},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-8">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawGrid":false,"drawAxis":true},"y":{"drawAxis":true}},"series":{"David Ortiz":{"axis":"y"}},"labels":["year","David Ortiz"],"legend":"auto","retainDateWindow":false,"showRangeSelector":true,"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel","ylabel":"Homeruns","stackedGraph":false,"fillGraph":true,"fillAlpha":0.4,"stepPlot":false,"drawPoints":true,"pointSize":2,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false},"scale":"yearly","annotations":[],"shadings":[],"events":[{"pos":"2003-01-22T00:00:00.000Z","label":"Signed with the Red Sox","labelLoc":"top","color":"black","strokePattern":[7,3],"axis":"x"}],"format":"date","data":[["1997-11-01T00:00:00.000Z","1998-11-01T00:00:00.000Z","1999-11-01T00:00:00.000Z","2000-11-01T00:00:00.000Z","2001-11-01T00:00:00.000Z","2002-11-01T00:00:00.000Z","2003-11-01T00:00:00.000Z","2004-11-01T00:00:00.000Z","2005-11-01T00:00:00.000Z","2006-11-01T00:00:00.000Z","2007-11-01T00:00:00.000Z","2008-11-01T00:00:00.000Z","2009-11-01T00:00:00.000Z","2010-11-01T00:00:00.000Z","2011-11-01T00:00:00.000Z","2012-11-01T00:00:00.000Z","2013-11-01T00:00:00.000Z","2014-11-01T00:00:00.000Z","2015-11-01T00:00:00.000Z","2016-11-01T00:00:00.000Z"],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],"fixedtz":false,"tzone":"UTC"},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
 <pre class="r"><code># Preselect only years he played for the redsox
 dygraph(do.xts) %&gt;% 
   dyRangeSelector(dateWindow = c(&quot;2003-01-23&quot;, &quot;2014-11-01&quot;)) %&gt;% 
@@ -99,9 +99,9 @@ dygraph(do.xts) %&gt;%
   dyAxis(&quot;x&quot;, drawGrid = FALSE) %&gt;%
   dyAxis(&quot;y&quot;, label=&quot;Homeruns&quot;) %&gt;%
   dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&gt;%
-  dyEvent(date = &quot;2003-01-22&quot;, &quot;Signed with the Red Sox&quot;, labelLoc = &quot;top&quot;)</code></pre>
+  dyEvent(x = &quot;2003-01-22&quot;, &quot;Signed with the Red Sox&quot;, labelLoc = &quot;top&quot;)</code></pre>
 <div id="htmlwidget-9" style="width:672px;height:480px;" class="dygraphs html-widget"></div>
-<script type="application/json" data-for="htmlwidget-9">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawGrid":false,"drawAxis":true},"y":{"drawAxis":true}},"series":{"David Ortiz":{"axis":"y"}},"labels":["year","David Ortiz"],"legend":"auto","retainDateWindow":false,"showRangeSelector":true,"dateWindow":["2003-01-23T00:00:00.000Z","2014-11-01T00:00:00.000Z"],"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel","ylabel":"Homeruns","stackedGraph":false,"fillGraph":true,"fillAlpha":0.4,"stepPlot":false,"drawPoints":true,"pointSize":2,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false},"scale":"yearly","annotations":[],"shadings":[],"events":[{"pos":"2003-01-22T00:00:00.000Z","label":null,"labelLoc":"top","color":"black","strokePattern":[7,3],"axis":"x"}],"format":"date","data":[["1997-11-01T00:00:00.000Z","1998-11-01T00:00:00.000Z","1999-11-01T00:00:00.000Z","2000-11-01T00:00:00.000Z","2001-11-01T00:00:00.000Z","2002-11-01T00:00:00.000Z","2003-11-01T00:00:00.000Z","2004-11-01T00:00:00.000Z","2005-11-01T00:00:00.000Z","2006-11-01T00:00:00.000Z","2007-11-01T00:00:00.000Z","2008-11-01T00:00:00.000Z","2009-11-01T00:00:00.000Z","2010-11-01T00:00:00.000Z","2011-11-01T00:00:00.000Z","2012-11-01T00:00:00.000Z","2013-11-01T00:00:00.000Z","2014-11-01T00:00:00.000Z","2015-11-01T00:00:00.000Z","2016-11-01T00:00:00.000Z"],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],"fixedtz":false,"tzone":"UTC"},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
+<script type="application/json" data-for="htmlwidget-9">{"x":{"attrs":{"axes":{"x":{"pixelsPerLabel":60,"drawGrid":false,"drawAxis":true},"y":{"drawAxis":true}},"series":{"David Ortiz":{"axis":"y"}},"labels":["year","David Ortiz"],"legend":"auto","retainDateWindow":false,"showRangeSelector":true,"dateWindow":["2003-01-23T00:00:00.000Z","2014-11-01T00:00:00.000Z"],"rangeSelectorHeight":40,"rangeSelectorPlotFillColor":" #A7B1C4","rangeSelectorPlotStrokeColor":"#808FAB","interactionModel":"Dygraph.Interaction.defaultModel","ylabel":"Homeruns","stackedGraph":false,"fillGraph":true,"fillAlpha":0.4,"stepPlot":false,"drawPoints":true,"pointSize":2,"drawGapEdgePoints":false,"connectSeparatedPoints":false,"strokeWidth":1,"strokeBorderColor":"white","colorValue":0.5,"colorSaturation":1,"includeZero":false,"drawAxesAtZero":false,"logscale":false,"axisTickSize":3,"axisLineColor":"black","axisLineWidth":0.3,"axisLabelColor":"black","axisLabelFontSize":14,"axisLabelWidth":60,"drawGrid":true,"gridLineWidth":0.3,"rightGap":5,"digitsAfterDecimal":2,"labelsKMB":false,"labelsKMG2":false,"labelsUTC":false,"maxNumberWidth":6,"animatedZooms":false,"mobileDisableYTouch":true,"disableZoom":false},"scale":"yearly","annotations":[],"shadings":[],"events":[{"pos":"2003-01-22T00:00:00.000Z","label":"Signed with the Red Sox","labelLoc":"top","color":"black","strokePattern":[7,3],"axis":"x"}],"format":"date","data":[["1997-11-01T00:00:00.000Z","1998-11-01T00:00:00.000Z","1999-11-01T00:00:00.000Z","2000-11-01T00:00:00.000Z","2001-11-01T00:00:00.000Z","2002-11-01T00:00:00.000Z","2003-11-01T00:00:00.000Z","2004-11-01T00:00:00.000Z","2005-11-01T00:00:00.000Z","2006-11-01T00:00:00.000Z","2007-11-01T00:00:00.000Z","2008-11-01T00:00:00.000Z","2009-11-01T00:00:00.000Z","2010-11-01T00:00:00.000Z","2011-11-01T00:00:00.000Z","2012-11-01T00:00:00.000Z","2013-11-01T00:00:00.000Z","2014-11-01T00:00:00.000Z","2015-11-01T00:00:00.000Z","2016-11-01T00:00:00.000Z"],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],"fixedtz":false,"tzone":"UTC"},"evals":["attrs.interactionModel"],"jsHooks":[]}</script>
 <pre class="r"><code>#A nnotate on all star game appearances
 dygraph(do.xts) %&gt;% 
   dyRangeSelector(dateWindow = c(&quot;2003-01-23&quot;, &quot;2014-11-01&quot;)) %&gt;% 

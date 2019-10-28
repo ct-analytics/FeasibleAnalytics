@@ -19,11 +19,11 @@ First, let's get some data and load the package. Being a big Red Sox fan, let's 
 At last, we can draw out a baseline graph to start out with.
 
 ```{r loaddata}
-library(xts)
-library(Lahman)
-library(dygraphs)
-library(dplyr)
-library(lubridate)
+suppressPackageStartupMessages(suppressWarnings(library(xts)))
+suppressPackageStartupMessages(suppressWarnings(library(Lahman)))
+suppressPackageStartupMessages(suppressWarnings(library(dygraphs)))
+suppressPackageStartupMessages(suppressWarnings(library(dplyr)))
+suppressPackageStartupMessages(suppressWarnings(library(lubridate)))
 
 # Get David Ortiz's ID
 data("Master")
@@ -95,7 +95,7 @@ dygraph(do.xts) %>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y", label="Homeruns") %>%
   dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %>%
-  dyEvent(date = "2003-01-22", "Signed with the Red Sox", labelLoc = "top")
+  dyEvent(x = "2003-01-22", "Signed with the Red Sox", labelLoc = "top")
 
 # Preselect only years he played for the redsox
 dygraph(do.xts) %>% 
@@ -104,7 +104,7 @@ dygraph(do.xts) %>%
   dyAxis("x", drawGrid = FALSE) %>%
   dyAxis("y", label="Homeruns") %>%
   dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %>%
-  dyEvent(date = "2003-01-22", "Signed with the Red Sox", labelLoc = "top")
+  dyEvent(x = "2003-01-22", "Signed with the Red Sox", labelLoc = "top")
 
 #A nnotate on all star game appearances
 dygraph(do.xts) %>% 
