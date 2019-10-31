@@ -3,7 +3,7 @@ title: NASA - Probabilistic Campaign Manifest Analysis Tool
 
 summary: Optimizing allocation of resources to maximize mission success
 
-date: "2008-01-00T00:00:00Z"
+date: "2008-01-01T00:00:00Z"
 
 image:
   caption: ""
