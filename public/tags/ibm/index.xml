@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>IBM | Christopher Teixeira</title>
+    <link>/tags/ibm/</link>
+      <atom:link href="/tags/ibm/index.xml" rel="self" type="application/rss+xml" />
+    <description>IBM</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Tue, 01 Mar 2011 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>IBM</title>
+      <link>/tags/ibm/</link>
+    </image>
+    
+    <item>
+      <title>JIEDDO - Operations Research and Systems Analysis Support</title>
+      <link>/project/jieddo/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      <guid>/project/jieddo/</guid>
+      <description>&lt;p&gt;I support JIEDDO using various analytical techniques including Analytic Hierarchy Process (AHP) and Regression Analysis. I created and tested a metric to help support decision making for various groups of people working with JIEDDO. I transferred complicated projects in EXCEL and ACCESS to SAS, improving the run-time and product quality. I created SAS Stored Processes to help streamline report generation, support business intelligence, and produce high quality graphics for all customers. I wrote a process to clean raw data and format the data using regular expression parsing on ingest of the data feeds. I integrated a process to parse XML files and create new databases from the results, making new sources of data available for a multitude of colleagues. I designed a database to enhance reporting and help determine an optimal solution to a resource allocation problem.&lt;/p&gt;
+
+&lt;p&gt;Image: US soldiers examine evidence at an IED training site at the National Training Center at Fort Irwin, California, US.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Healthcare Claims Fraud</title>
+      <link>/project/aetna/</link>
+      <pubDate>Mon, 01 Nov 2010 00:00:00 +0000</pubDate>
+      <guid>/project/aetna/</guid>
+      <description>&lt;p&gt;Worked with a team to determine the best use of IBM’s analytical skills to help Aetna improve their business. Modified a SAS multiplicative regression model to be more flexible with data and improve efficiency. Determine the important factors in improving care management efficiency for existing programs at Aetna.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

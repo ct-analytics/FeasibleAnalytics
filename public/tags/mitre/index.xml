@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MITRE | Christopher Teixeira</title>
+    <link>/tags/mitre/</link>
+      <atom:link href="/tags/mitre/index.xml" rel="self" type="application/rss+xml" />
+    <description>MITRE</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Tue, 11 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>MITRE</title>
+      <link>/tags/mitre/</link>
+    </image>
+    
+    <item>
+      <title>State Engagement to Address Opioid Overprescribing and Misuse</title>
+      <link>/project/state-engagement-to-address-opioid-overprescribing-and-misuse/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/project/state-engagement-to-address-opioid-overprescribing-and-misuse/</guid>
+      <description>&lt;p&gt;To be filled in later.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Predictive Analytics in Child Welfare</title>
+      <link>/project/predictive-analytics-child-welfare/</link>
+      <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>/project/predictive-analytics-child-welfare/</guid>
+      <description>&lt;p&gt;Lead a small team that interviewed several child welfare agencies to understand their progress in utilizing predictive analytics. This environmental scan resulted in two publicly released documents hosted on the Department of Health and Human Services Assistant Secretary for Planning and Evaluation website.&lt;/p&gt;
+
+&lt;p&gt;Separately, I led a small team that brought together six government agencies to analyze data around children in foster care to understand how their experiences impact their ability to lead health and independent lives. This involved working directly with a state to obtain and analyze their data using predictive analytics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Department of Energy Cost and Schedule Tool</title>
+      <link>/project/doe-cost-and-schedule-tool/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/project/doe-cost-and-schedule-tool/</guid>
+      <description>&lt;p&gt;Developed a discrete simulation model capable of performing lifecycle cost and schedule analysis. This model supports executives that make decisions on alternative strategies which are expected to cost on the order of tens of billions of dollars. The model, built entirely in JavaScript using SIM.JS, allows users to configure the schedule and efficiency of each alternative. After the model completes, results are displayed using a combination of D3 and TimelineJS libraries.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Veteran Benefits Administration Command and Control Model</title>
+      <link>/project/vba-command-and-control-model/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/project/vba-command-and-control-model/</guid>
+      <description>&lt;p&gt;Coordinate efforts and approaches between teams to optimize approaches. Advise on the use of data for inputs into a discrete event simulation and the model out visualization.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Children at Risk Research</title>
+      <link>/project/children-at-risk-research/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>/project/children-at-risk-research/</guid>
+      <description>&lt;p&gt;The Children at Risk research project looks at which information is important at determining which children under the age of ten are at higher risk for fatality due to abuse and neglect. Leading a small team, we&amp;rsquo;ve collected data from multiple parts of a local Health and Human Services Agency to bring together and understand some of the data quality issues that might exist in other HHS agencies. We use R (specifically the CARET library) to identify which factors are the most important in determining children who are at higher risk due to fatality. Using this information, we hope to design a data visualization tool that will help caseworkers identify those children at higher risk of fatality due to abuse and neglect.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Financial Metrics Visual Model</title>
+      <link>/project/financial-metrics-visual-model/</link>
+      <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+      <guid>/project/financial-metrics-visual-model/</guid>
+      <description>&lt;p&gt;The Financial Metrics Visual Model is a tool designed to help MITRE leadership understand the impact of their decisions on high-level MITRE financial metrics. Working with members of the MITRE Finance department, I created a interactive system dynamics model that will allow the user to adjust high level inputs to see how they impact both MITRE financial metrics and other intermediate values used in calculating those metrics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Strategic Workforce Model</title>
+      <link>/project/strategic-workforce-model/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>/project/strategic-workforce-model/</guid>
+      <description>&lt;p&gt;The Strategic Workforce Modeling project focuses on hiring goals directors set for their division to project out what their staff will project to be in five years. Working in AnyLogic, I&amp;rsquo;ve updated the Agent Based Model to be more efficient, account for additional staff behavior, and produce data for Tableau. The Tableau workbook blends model outputs together to create a dashboard for directors to understand the impact of their hiring policies and the uncertainty of what their staff levels will look like over the next five years.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

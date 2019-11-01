@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Epsilon | Christopher Teixeira</title>
+    <link>/tags/epsilon/</link>
+      <atom:link href="/tags/epsilon/index.xml" rel="self" type="application/rss+xml" />
+    <description>Epsilon</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 01 Jan 2014 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Epsilon</title>
+      <link>/tags/epsilon/</link>
+    </image>
+    
+    <item>
+      <title>Real Time Predictive Modeling</title>
+      <link>/project/realtime-predictive-modeling/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>/project/realtime-predictive-modeling/</guid>
+      <description>&lt;p&gt;Worked directly with a client to design data sources that allow for real time modeling and scoring. Led a team of statisticians to consolidate knowledge and design best practices in advanced modeling techniques for near real time model building.&lt;/p&gt;
+
+&lt;p&gt;Designed a methodology to detect and predict client behavior patterns. Results of this methodology are intended to influence real-time marketing decisions to improve response rates.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sentiment Analysis for specific Brand/Products</title>
+      <link>/project/sentiment-analysis/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>/project/sentiment-analysis/</guid>
+      <description>&lt;p&gt;Analyze social media (Twitter) to determine sentiment around a client&amp;rsquo;s brand and specific products. Using R, analyzed tweets to determine shifts in sentiment over time about a client&amp;rsquo;s brand and general effectiveness of customer service. Produced visualizations through R and Tableau to help executives understand the sentiment analysis results.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Customer Attrition Analysis</title>
+      <link>/project/customer-attrition-analysis/</link>
+      <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
+      <guid>/project/customer-attrition-analysis/</guid>
+      <description>&lt;p&gt;I worked with team members to build a Bayesian Belief Network (BBN) on large data sources in Netezza to predict the likelihood of a person closing an account with our client. I compared the BBN model results against Logistic Regression to determine best modeling approach. The results showed that the Logistic Regression approach provided more accurate results, but required more resources to get that result.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,405 @@
+---
+title: "Categorizing Pitches"
+author: "Christopher Teixeira"
+date: 2019-09-02
+categories: []
+tags: ["R", "Machine Learning"]
+---
+
+```{r global_options, include=FALSE}
+knitr::opts_chunk$set(echo=TRUE,
+                      warning=FALSE, 
+                      message=FALSE)
+
+suppressPackageStartupMessages( suppressWarnings( library('tidyverse') ) )
+suppressPackageStartupMessages( suppressWarnings( library('recipes') ) )
+suppressPackageStartupMessages( suppressWarnings( library('caret') ) )
+suppressPackageStartupMessages( suppressWarnings( library('tidymodels') ) )
+```
+
+
+```{r setup, cache=T, include=FALSE}
+theme_set(ggthemes::theme_tufte())
+
+ks <- function (x) { number_format(accuracy = 1,
+                                   scale = 1/1000,
+                                   suffix = "K",
+                                   big.mark = ",")(x) }
+
+data.2013 <- read.csv("../../../../Baseball Analytics/TRUMedia Hackathon/data/2013.csv",stringsAsFactors = F)
+data.2014 <- read.csv("../../../../Baseball Analytics/TRUMedia Hackathon/data/2014.csv",stringsAsFactors = F)
+data.2015 <- read.csv("../../../../Baseball Analytics/TRUMedia Hackathon/data/2015.csv",stringsAsFactors = F)
+
+df.future <- bind_rows(data.2014, data.2015)
+
+# df.all <- bind_rows(data.2013, data.2014, data.2015) 
+df.all <- data.2013 
+
+pitchers <- df.all %>% select(pitcherId, pitcher) %>% distinct()
+
+df <- as_tibble(df.all) %>%
+  select(-atbatDesc,
+    -gameString,
+    -gameDate,
+    -gameType,
+    -visitor,
+    -home,
+    -visitingTeamFinalRuns,
+    -homeTeamFinalRuns,
+    -inning,
+    -side,
+    -batterId,
+    -batter,
+    -pitcher,
+    -catcherId,
+    -catcher,
+    -timesFaced,
+    -batterPosition,
+    -balls,
+    -strikes,
+    -outs,
+    -manOnFirst,
+    -manOnSecond,
+    -manOnThird,
+    -endManOnFirst,
+    -endManOnSecond,
+    -endManOnThird,
+    -visitingTeamCurrentRuns,
+    -homeTeamCurrentRuns,
+    -pitchResult,
+    -paResult,
+    -runsHome,
+    -battedBallAngle,
+    -battedBallType,
+    -battedBallDistance,
+    -batterHand,
+    -seasonYear,
+    -y0) 
+
+df.future <- as_tibble(df.future) %>%
+  select(-atbatDesc,
+    -gameString,
+    -gameDate,
+    -gameType,
+    -visitor,
+    -home,
+    -visitingTeamFinalRuns,
+    -homeTeamFinalRuns,
+    -inning,
+    -side,
+    -batterId,
+    -batter,
+    -pitcher,
+    -catcherId,
+    -catcher,
+    -timesFaced,
+    -batterPosition,
+    -balls,
+    -strikes,
+    -outs,
+    -manOnFirst,
+    -manOnSecond,
+    -manOnThird,
+    -endManOnFirst,
+    -endManOnSecond,
+    -endManOnThird,
+    -visitingTeamCurrentRuns,
+    -homeTeamCurrentRuns,
+    -pitchResult,
+    -paResult,
+    -runsHome,
+    -battedBallAngle,
+    -battedBallType,
+    -battedBallDistance,
+    -batterHand,
+    -seasonYear,
+    -y0) 
+
+pitchtypes.raw <- "*CH - Changeup\n*CU - Curveball\n*FA - Fastball\n*FT - Two Seamer\n*FF - Four Seamer\n*FC - Cutter\n*SL - Slider\n*FS - Splitter\n*SI - Sinker\n*FO - Forkball\n*KN - Knuckleball\n*KC - Knuckle Curve\n*SC - Screwball\n*GY - Gyroball\n*EP - Eephus\n*PO - Pitchout\n*IN - Intentional Ball \n*AB - Automatic Ball \n*AS - Automatic Strike \n*UN - Unknown" %>%
+  str_match_all("(\\w{2}) - (\\w+)") 
+pitchtypes <- pitchtypes.raw[[1]] %>% as_tibble() %>% select(pitchType=V2,pitch=V3)
+```
+
+# Data discussion
+My customary evening activity is listening to the NESN commentary during a Red Sox game. During one particular game, a pitcher threw a pitch they suspected was a screwball. Over the next few minutes, they discussed the the prevalence of screwballs in today's game versus other pitches that could appear like screwballs. I took this as an opportunity to evaluate the movement on pitches and see if any in fact might be "more screwball-like".
+
+Using data provided by TruMedia for a hackathon, I looked into using their pitch-by-pitch data to see if this was even possible.
+
+*pitchType*
+* CH - Changeup
+* CU - Curveball
+* FA - Fastball
+* FT - Two Seamer
+* FF - Four Seamer
+* FC - Cutter
+* SL - Slider
+* FS - Splitter
+* SI - Sinker
+* FO - Forkball
+* KN - Knuckleball
+* KC - Knuckle Curve
+* SC - Screwball
+* GY - Gyroball
+* EP - Eephus
+* PO - Pitchout
+* IN - Intentional Ball 
+* AB - Automatic Ball 
+* AS - Automatic Strike 
+* UN - Unknown
+
+```{r data_overview}
+
+ggplot(df %>% group_by(pitchType) %>% count() %>% arrange(desc(n)), aes(x=reorder(pitchType,-n),y=n)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label = ks(n), y=n), vjust = -.5, stat="identity") +
+  scale_y_continuous(labels=ks) + 
+  ylab("Number of Pitches") +
+  xlab("Pitch Type")
+
+removePitchTypes <- c("PO","IN","AB","AS","FA","UN")
+df <- filter(df,!(pitchType %in% removePitchTypes))
+num.pitch.types <- df %>% select(pitchType) %>% distinct() %>% count() %>% pull()
+
+```
+
+Given that, we're going to remove some pitch types. The pitch types we remove fall under two categories:
+1) "automatic" pitches like pitch outs, intentional balls
+2) uncommon pitches like "unknown" and "fastballs"
+
+## Splitting the data for validation
+```{r data_split}
+set.seed(4567)
+df_split <- initial_split(df, prop = 0.75, strata = "pitchType")
+
+response_train <- ggplot(training(df_split),aes(x=pitchType, group=1)) +
+  geom_bar(aes(y =..prop..), stat="count", width=.75) +
+  geom_text(aes(label = scales::percent(..prop..), y=..prop..), vjust = -.5, stat="count") +
+  scale_y_continuous(labels=scales::percent) +
+  ylab("Relative frequencies") +
+  xlab("Pitch Type")
+response_test <- ggplot(testing(df_split),aes(x=pitchType, group=1)) +
+  geom_bar(aes(y =..prop.., group=1), stat="count", width=.75) +
+  geom_text(aes(label = scales::percent(..prop..), y=..prop..), stat= "count", vjust = -.5) +
+  scale_y_continuous(labels=scales::percent) +
+  ylab("Relative frequencies") +
+  xlab("Pitch Type")
+gridExtra::grid.arrange(response_train, response_test)
+```
+
+## Recipe for processing data
+
+```{r data_recipe, results='asis'}
+# Upsample minority class
+majority.class.amount <- df_split %>%
+  training() %>%
+  group_by(pitchType) %>%
+  summarize(n=n()) %>%
+  arrange(desc(n)) %>%
+  slice(1) %>%
+  pull()
+
+minority.class.amount <- 1000
+
+df_recipe <- df_split %>%
+  training() %>%
+  recipe(pitchType ~ . - pitcherId) %>%
+  # step_num2factor(pitcherId) %>%
+  step_string2factor(pitcherHand, pitchType) %>%
+  update_role(pitcherId, new_role = "id variable") %>%
+  step_upsample(pitchType, ratio=minority.class.amount/majority.class.amount) %>%
+  step_center(all_predictors(), -all_outcomes(), -all_nominal()) %>%
+  step_scale(all_predictors(), -all_outcomes(), -all_nominal()) %>%
+  # step_corr(all_numeric(), - all_outcomes(), threshold = 0.5) %>%
+  step_dummy(all_nominal(), -all_outcomes()) %>%
+  step_naomit(px) %>%
+  prep(retain=TRUE)
+
+df_recipe
+
+df_training <- juice(df_recipe)
+df_testing <- df_recipe %>%
+  bake(testing(df_split))
+```
+
+# A first model
+
+Our goal is to build a model that examines pitch types and whether they are categorized by pitch movement. The inspiration for this was built upon a comment that "screwballs" aren't thrown anymore. While pitches can be categorized by the combination of how the pitcher holds the baseball with the arm movements, the behavior of the ball itself can vary slightly and begs the question, "do some two seam fastballs act like screwballs?" We'll generalize this and understand if there are certain pitches that behave like others.
+
+## Null model
+In order to appreciate the power of our model, let's first create a null model to understand a baseline predictability. Parsnip has a function for figuring this out, although some basic data manipulation can come to the same conclusion. The null model essentially just says "always guess the majority class" (for classification models). 
+```{r model_null}
+# Using data manipulation and dplyr
+majority.class.accuracy <- df %>% group_by(pitchType) %>% summarize(n=n()) %>% mutate(pct=n/sum(n)) %>% arrange(desc(n)) %>% slice(1) %>% select(pct) %>% pull()
+
+# Using parsnip::nullmodel
+null.model <- nullmodel(y=factor(df$pitchType))
+null.model.accuracy <- null.model$pct %>% as_tibble %>% filter(y==null.model$value) %>% select(n) %>% pull()
+```
+
+Randomly guessing the majority class would give us an accuracy of `r percent(null.model.accuracy)`.
+
+## Improved Naive model
+We can do slightly better than that if we build a model based on the pitcher. This model will weight for what a pitcher normally throws. 
+
+```{r model_naive, cache=T}
+# Naive model
+df_rf_naive <- rand_forest(trees = 100, mode = "classification") %>%
+  set_engine("randomForest", importance=T, localImp = T) %>%
+  fit(pitchType ~ pitcherId, data = df_training)
+
+# Baseline results
+baseline.results <- predict(df_rf_naive, df_testing, type = "prob") %>%
+  bind_cols(predict(df_rf_naive, df_testing)) %>%
+  bind_cols(select(df_testing, pitchType)) %>%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c("quiet"=T))
+
+baseline.results %>% knitr::kable(digits=4)
+baseline.accuracy <- baseline.results %>% filter(.metric=="accuracy") %>% select(.estimate) %>% pull
+```
+
+Our true baseline is now `r percent(baseline.accuracy)` that we will use in measuring performance of our model going forward.
+
+# Building a full model
+
+```{r model_full, cache=T}
+# Full model
+df_rf <- rand_forest(trees = 100, mode = "classification") %>%
+  set_engine("randomForest", importance=T, localImp = T) %>%
+  fit(pitchType ~ . - pitcherId, data = df_training)
+
+df_rf
+
+full.model.results <- predict(df_rf, df_testing, type = "prob") %>%
+  bind_cols(predict(df_rf, df_testing)) %>%
+  bind_cols(select(df_testing, pitchType)) %>%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c("quiet"=T))
+
+full.model.results %>% knitr::kable(digits=4)
+full.model.accuracy <- full.model.results %>% filter(.metric=="accuracy") %>% select(.estimate) %>% pull
+```
+
+A simple first attempt at building a model results in an accuracy of `r percent(full.model.accuracy)`, or `r round(full.model.accuracy/baseline.accuracy,1)` times better than our baseline model. 
+
+## Model interpretation
+
+```{r results_varimp, cache=T}
+results <- df_rf %>%
+  predict(df_testing) %>%
+  bind_cols(df_testing) %>%
+  select(pitcherId,actual=pitchType, predicted=.pred_class)
+
+# Permutation based importance
+cbind(rownames(df_rf$fit$importance), df_rf$fit$importance) %>%
+  as_tibble() %>%
+  select(predictor=V1, MeanDecreaseAccuracy)   %>%
+  mutate(MeanDecreaseAccuracy=as.numeric(MeanDecreaseAccuracy)) %>%
+  arrange(desc(MeanDecreaseAccuracy)) %>%
+  head()
+
+```
+
+```{r results_roc, cache=T}
+
+df_probs <- df_rf %>%
+  predict(df_testing, type = "prob") %>%
+  bind_cols(df_testing)
+
+df_probs %>%
+  roc_curve(pitchType, .pred_CH:.pred_SL, options=c("quiet"=TRUE)) %>%
+  autoplot()
+
+```
+
+```{r results_confusionmatrix, cache=T}
+conf_mat(results, truth = actual, estimate = predicted)[[1]] %>%
+  prop.table(2) %>%
+  round(2) %>%
+  as_tibble() %>%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(n, accuracy=1), alpha = n), size = 6) +
+  theme(legend.position = "none") +
+  labs(
+    title = "Confusion matrix"
+  )
+
+```
+
+# Analysis
+
+## Which pitch is often misclassified?
+
+```{r analysis_1, cache=T}
+
+results %>%
+  mutate(correct=if_else(actual==predicted,1,0)) %>%
+  group_by(actual) %>%
+  summarize(n = n(),
+            wrong = n - sum(correct)) %>%
+  mutate(pct = wrong / n) %>%
+  arrange(desc(pct)) %>%
+  left_join(pitchtypes,by=c("actual"="pitchType")) %>%
+  mutate(Percent=percent(pct)) %>%
+  select(`Pitch Type`=pitch, `Number of Pitches`=n, `Incorrect Category`=wrong, Percent) %>%
+  knitr::kable()
+
+```
+
+## Which pitcher often has his pitches misclassified? 
+
+```{r analysis_2, cache=T}
+
+results %>%
+  mutate(correct=if_else(actual==predicted,1,0)) %>%
+  group_by(pitcherId) %>%
+  summarize(n = n(),
+            wrong = n - sum(correct)) %>%
+  mutate(pct = wrong / n) %>%
+  arrange(desc(pct)) %>%
+  left_join(pitchers) %>%
+  filter(n>100) %>%
+  select(Pitcher=pitcher, `Number of Pitches`=n, `Incorrect Category`=wrong, Percent=pct) %>%
+  slice(1:20) %>%
+  knitr::kable(digits=4)
+```
+
+
+## Does the ability of categorizing pitch types changes over time?
+
+```{r analysis_3, cache=T}
+
+
+df_additional <- df_recipe %>%
+  bake(df.future)
+
+ggplot(df_additional %>% group_by(pitchType) %>% count() %>% arrange(desc(n)), aes(x=reorder(pitchType,-n),y=n)) +
+  geom_bar(stat="identity") +
+  geom_text(aes(label = ks(n), y=n), vjust = -.5, stat="identity") +
+  scale_y_continuous(labels=ks) + 
+  ylab("Number of Pitches") +
+  xlab("Pitch Type")
+
+
+future.performance <- predict(df_rf, df_additional, type = "prob") %>%
+  bind_cols(predict(df_rf, df_additional)) %>%
+  bind_cols(select(df_additional, pitchType)) %>%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c("quiet"=T)) %>% 
+  knitr::kable(digits=4)
+
+future.results <- df_rf %>%
+  predict(df_additional) %>%
+  bind_cols(df_additional) %>%
+  select(pitcherId,actual=pitchType, predicted=.pred_class)
+
+conf_mat(future.results, truth = actual, estimate = predicted)[[1]] %>%
+  prop.table(2) %>%
+  round(2) %>%
+  as_tibble() %>%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(n, accuracy=1), alpha = n), size = 6) +
+  theme(legend.position = "none") +
+  labs(
+    title = "Confusion matrix"
+  )
+```

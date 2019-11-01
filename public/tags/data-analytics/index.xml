@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Data Analytics | Christopher Teixeira</title>
+    <link>/tags/data-analytics/</link>
+      <atom:link href="/tags/data-analytics/index.xml" rel="self" type="application/rss+xml" />
+    <description>Data Analytics</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Tue, 11 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Data Analytics</title>
+      <link>/tags/data-analytics/</link>
+    </image>
+    
+    <item>
+      <title>State Engagement to Address Opioid Overprescribing and Misuse</title>
+      <link>/project/state-engagement-to-address-opioid-overprescribing-and-misuse/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/project/state-engagement-to-address-opioid-overprescribing-and-misuse/</guid>
+      <description>&lt;p&gt;To be filled in later.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Predictive Analytics in Child Welfare</title>
+      <link>/project/predictive-analytics-child-welfare/</link>
+      <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>/project/predictive-analytics-child-welfare/</guid>
+      <description>&lt;p&gt;Lead a small team that interviewed several child welfare agencies to understand their progress in utilizing predictive analytics. This environmental scan resulted in two publicly released documents hosted on the Department of Health and Human Services Assistant Secretary for Planning and Evaluation website.&lt;/p&gt;
+
+&lt;p&gt;Separately, I led a small team that brought together six government agencies to analyze data around children in foster care to understand how their experiences impact their ability to lead health and independent lives. This involved working directly with a state to obtain and analyze their data using predictive analytics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Veteran Benefits Administration Command and Control Model</title>
+      <link>/project/vba-command-and-control-model/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/project/vba-command-and-control-model/</guid>
+      <description>&lt;p&gt;Coordinate efforts and approaches between teams to optimize approaches. Advise on the use of data for inputs into a discrete event simulation and the model out visualization.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JIEDDO - Operations Research and Systems Analysis Support</title>
+      <link>/project/jieddo/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      <guid>/project/jieddo/</guid>
+      <description>&lt;p&gt;I support JIEDDO using various analytical techniques including Analytic Hierarchy Process (AHP) and Regression Analysis. I created and tested a metric to help support decision making for various groups of people working with JIEDDO. I transferred complicated projects in EXCEL and ACCESS to SAS, improving the run-time and product quality. I created SAS Stored Processes to help streamline report generation, support business intelligence, and produce high quality graphics for all customers. I wrote a process to clean raw data and format the data using regular expression parsing on ingest of the data feeds. I integrated a process to parse XML files and create new databases from the results, making new sources of data available for a multitude of colleagues. I designed a database to enhance reporting and help determine an optimal solution to a resource allocation problem.&lt;/p&gt;
+
+&lt;p&gt;Image: US soldiers examine evidence at an IED training site at the National Training Center at Fort Irwin, California, US.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

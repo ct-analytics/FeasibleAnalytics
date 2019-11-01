@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | Christopher Teixeira</title>
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Mon, 02 Sep 2019 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Posts</title>
+      <link>/post/</link>
+    </image>
+    
+    <item>
+      <title>Categorizing Pitches</title>
+      <link>/post/20190902_predicting_pitch_types/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>/post/20190902_predicting_pitch_types/</guid>
+      <description>
+
+
+&lt;div id=&#34;data-discussion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Data discussion&lt;/h1&gt;
+&lt;p&gt;My customary evening activity is listening to the NESN commentary during a Red Sox game. During one particular game, a pitcher threw a pitch they suspected was a screwball. Over the next few minutes, they discussed the the prevalence of screwballs in today’s game versus other pitches that could appear like screwballs. I took this as an opportunity to evaluate the movement on pitches and see if any in fact might be “more screwball-like”.&lt;/p&gt;
+&lt;p&gt;Using data provided by TruMedia for a hackathon, I looked into using their pitch-by-pitch data to see if this was even possible.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;pitchType&lt;/em&gt;
+* CH - Changeup
+* CU - Curveball
+* FA - Fastball
+* FT - Two Seamer
+* FF - Four Seamer
+* FC - Cutter
+* SL - Slider
+* FS - Splitter
+* SI - Sinker
+* FO - Forkball
+* KN - Knuckleball
+* KC - Knuckle Curve
+* SC - Screwball
+* GY - Gyroball
+* EP - Eephus
+* PO - Pitchout
+* IN - Intentional Ball
+* AB - Automatic Ball
+* AS - Automatic Strike
+* UN - Unknown&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df %&amp;gt;% group_by(pitchType) %&amp;gt;% count() %&amp;gt;% arrange(desc(n)), aes(x=reorder(pitchType,-n),y=n)) +
+  geom_bar(stat=&amp;quot;identity&amp;quot;) +
+  geom_text(aes(label = ks(n), y=n), vjust = -.5, stat=&amp;quot;identity&amp;quot;) +
+  scale_y_continuous(labels=ks) + 
+  ylab(&amp;quot;Number of Pitches&amp;quot;) +
+  xlab(&amp;quot;Pitch Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/data_overview-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;removePitchTypes &amp;lt;- c(&amp;quot;PO&amp;quot;,&amp;quot;IN&amp;quot;,&amp;quot;AB&amp;quot;,&amp;quot;AS&amp;quot;,&amp;quot;FA&amp;quot;,&amp;quot;UN&amp;quot;)
+df &amp;lt;- filter(df,!(pitchType %in% removePitchTypes))
+num.pitch.types &amp;lt;- df %&amp;gt;% select(pitchType) %&amp;gt;% distinct() %&amp;gt;% count() %&amp;gt;% pull()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Given that, we’re going to remove some pitch types. The pitch types we remove fall under two categories:
+1) “automatic” pitches like pitch outs, intentional balls
+2) uncommon pitches like “unknown” and “fastballs”&lt;/p&gt;
+&lt;div id=&#34;splitting-the-data-for-validation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Splitting the data for validation&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(4567)
+df_split &amp;lt;- initial_split(df, prop = 0.75, strata = &amp;quot;pitchType&amp;quot;)
+
+response_train &amp;lt;- ggplot(training(df_split),aes(x=pitchType, group=1)) +
+  geom_bar(aes(y =..prop..), stat=&amp;quot;count&amp;quot;, width=.75) +
+  geom_text(aes(label = scales::percent(..prop..), y=..prop..), vjust = -.5, stat=&amp;quot;count&amp;quot;) +
+  scale_y_continuous(labels=scales::percent) +
+  ylab(&amp;quot;Relative frequencies&amp;quot;) +
+  xlab(&amp;quot;Pitch Type&amp;quot;)
+response_test &amp;lt;- ggplot(testing(df_split),aes(x=pitchType, group=1)) +
+  geom_bar(aes(y =..prop.., group=1), stat=&amp;quot;count&amp;quot;, width=.75) +
+  geom_text(aes(label = scales::percent(..prop..), y=..prop..), stat= &amp;quot;count&amp;quot;, vjust = -.5) +
+  scale_y_continuous(labels=scales::percent) +
+  ylab(&amp;quot;Relative frequencies&amp;quot;) +
+  xlab(&amp;quot;Pitch Type&amp;quot;)
+gridExtra::grid.arrange(response_train, response_test)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/data_split-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;recipe-for-processing-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Recipe for processing data&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Upsample minority class
+majority.class.amount &amp;lt;- df_split %&amp;gt;%
+  training() %&amp;gt;%
+  group_by(pitchType) %&amp;gt;%
+  summarize(n=n()) %&amp;gt;%
+  arrange(desc(n)) %&amp;gt;%
+  slice(1) %&amp;gt;%
+  pull()
+
+minority.class.amount &amp;lt;- 1000
+
+df_recipe &amp;lt;- df_split %&amp;gt;%
+  training() %&amp;gt;%
+  recipe(pitchType ~ . - pitcherId) %&amp;gt;%
+  # step_num2factor(pitcherId) %&amp;gt;%
+  step_string2factor(pitcherHand, pitchType) %&amp;gt;%
+  update_role(pitcherId, new_role = &amp;quot;id variable&amp;quot;) %&amp;gt;%
+  step_upsample(pitchType, ratio=minority.class.amount/majority.class.amount) %&amp;gt;%
+  step_center(all_predictors(), -all_outcomes(), -all_nominal()) %&amp;gt;%
+  step_scale(all_predictors(), -all_outcomes(), -all_nominal()) %&amp;gt;%
+  # step_corr(all_numeric(), - all_outcomes(), threshold = 0.5) %&amp;gt;%
+  step_dummy(all_nominal(), -all_outcomes()) %&amp;gt;%
+  step_naomit(px) %&amp;gt;%
+  prep(retain=TRUE)
+
+df_recipe&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Data Recipe&lt;/p&gt;
+&lt;p&gt;Inputs:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    role #variables&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;id variable 1
+outcome 1
+predictor 16&lt;/p&gt;
+&lt;p&gt;Training data contained 536894 data points and no missing data.&lt;/p&gt;
+&lt;p&gt;Operations:&lt;/p&gt;
+&lt;p&gt;Factor variables from pitcherHand, pitchType [trained]
+Up-sampling based on pitchType [trained]
+Centering for releaseVelocity, spinRate, spinDir, px, … [trained]
+Scaling for releaseVelocity, spinRate, spinDir, px, … [trained]
+Dummy variables from pitcherHand [trained]
+Removing rows with NA values in px&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_training &amp;lt;- juice(df_recipe)
+df_testing &amp;lt;- df_recipe %&amp;gt;%
+  bake(testing(df_split))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-first-model&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;A first model&lt;/h1&gt;
+&lt;p&gt;Our goal is to build a model that examines pitch types and whether they are categorized by pitch movement. The inspiration for this was built upon a comment that “screwballs” aren’t thrown anymore. While pitches can be categorized by the combination of how the pitcher holds the baseball with the arm movements, the behavior of the ball itself can vary slightly and begs the question, “do some two seam fastballs act like screwballs?” We’ll generalize this and understand if there are certain pitches that behave like others.&lt;/p&gt;
+&lt;div id=&#34;null-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Null model&lt;/h2&gt;
+&lt;p&gt;In order to appreciate the power of our model, let’s first create a null model to understand a baseline predictability. Parsnip has a function for figuring this out, although some basic data manipulation can come to the same conclusion. The null model essentially just says “always guess the majority class” (for classification models).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using data manipulation and dplyr
+majority.class.accuracy &amp;lt;- df %&amp;gt;% group_by(pitchType) %&amp;gt;% summarize(n=n()) %&amp;gt;% mutate(pct=n/sum(n)) %&amp;gt;% arrange(desc(n)) %&amp;gt;% slice(1) %&amp;gt;% select(pct) %&amp;gt;% pull()
+
+# Using parsnip::nullmodel
+null.model &amp;lt;- nullmodel(y=factor(df$pitchType))
+null.model.accuracy &amp;lt;- null.model$pct %&amp;gt;% as_tibble %&amp;gt;% filter(y==null.model$value) %&amp;gt;% select(n) %&amp;gt;% pull()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Randomly guessing the majority class would give us an accuracy of 34.8%.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;improved-naive-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Improved Naive model&lt;/h2&gt;
+&lt;p&gt;We can do slightly better than that if we build a model based on the pitcher. This model will weight for what a pitcher normally throws.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Naive model
+df_rf_naive &amp;lt;- rand_forest(trees = 100, mode = &amp;quot;classification&amp;quot;) %&amp;gt;%
+  set_engine(&amp;quot;randomForest&amp;quot;, importance=T, localImp = T) %&amp;gt;%
+  fit(pitchType ~ pitcherId, data = df_training)
+
+# Baseline results
+baseline.results &amp;lt;- predict(df_rf_naive, df_testing, type = &amp;quot;prob&amp;quot;) %&amp;gt;%
+  bind_cols(predict(df_rf_naive, df_testing)) %&amp;gt;%
+  bind_cols(select(df_testing, pitchType)) %&amp;gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&amp;quot;quiet&amp;quot;=T))
+
+baseline.results %&amp;gt;% knitr::kable(digits=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;.metric&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;.estimator&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;.estimate&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;accuracy&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4629&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;kap&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.2902&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;mn_log_loss&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1878&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;roc_auc&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;hand_till&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.7112&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;baseline.accuracy &amp;lt;- baseline.results %&amp;gt;% filter(.metric==&amp;quot;accuracy&amp;quot;) %&amp;gt;% select(.estimate) %&amp;gt;% pull&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our true baseline is now 46.3% that we will use in measuring performance of our model going forward.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;building-a-full-model&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Building a full model&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Full model
+df_rf &amp;lt;- rand_forest(trees = 100, mode = &amp;quot;classification&amp;quot;) %&amp;gt;%
+  set_engine(&amp;quot;randomForest&amp;quot;, importance=T, localImp = T) %&amp;gt;%
+  fit(pitchType ~ . - pitcherId, data = df_training)
+
+df_rf&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## parsnip model object
+## 
+## 
+## Call:
+##  randomForest(x = as.data.frame(x), y = y, ntree = ~100, importance = ~T,      localImp = ~T) 
+##                Type of random forest: classification
+##                      Number of trees: 100
+## No. of variables tried at each split: 4
+## 
+##         OOB estimate of  error rate: 8.22%
+## Confusion matrix:
+##       CH    CU   EP    FC     FF  FO   FS    FT   KC   KN   SC    SI    SL
+## CH 52303    17    0    49    453   2  193   403    1   24    5   633   438
+## CU    28 40711    7    12      5   0    2     0  348   19    0     0  2012
+## EP     0     0 1000     0      0   0    0     0    0    0    0     0     0
+## FC    89    15    0 24372   1535   0    2    14    0    0    0    12  2727
+## FF   477     2    0   929 179915   0   14  3922    0    6    0  1547   329
+## FO    38     1    0     0     12 928    0    12    0    0    0     9     0
+## FS  1962     4    0    14     50   1 5660    27    0    4    0    67   116
+## FT   745     4    0     4   6366   2    6 55590    0    0    0  3288    19
+## KC    14  1594    0     3      0   0    2     0 7134    1    0     1   672
+## KN    42    61    0     0      0   0    2     0    2 2243    0     0    21
+## SC     0     0    0     0      0   0    0     0    0    0 1000     0     0
+## SI   788     0    0     7   3631   1    9  4747    0    0    0 45316    24
+## SL   388  1350    0  1293    377   0   35    11  188    5    0    23 78757
+##    class.error
+## CH  0.04068157
+## CU  0.05639255
+## EP  0.00000000
+## FC  0.15274977
+## FF  0.03861260
+## FO  0.07200000
+## FS  0.28399747
+## FT  0.15803344
+## KC  0.24275555
+## KN  0.05398566
+## SC  0.00000000
+## SI  0.16886452
+## SL  0.04452425&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;full.model.results &amp;lt;- predict(df_rf, df_testing, type = &amp;quot;prob&amp;quot;) %&amp;gt;%
+  bind_cols(predict(df_rf, df_testing)) %&amp;gt;%
+  bind_cols(select(df_testing, pitchType)) %&amp;gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&amp;quot;quiet&amp;quot;=T))
+
+full.model.results %&amp;gt;% knitr::kable(digits=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;.metric&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;.estimator&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;.estimate&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;accuracy&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.7811&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;kap&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.7266&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;mn_log_loss&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5613&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;roc_auc&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;hand_till&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9688&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;full.model.accuracy &amp;lt;- full.model.results %&amp;gt;% filter(.metric==&amp;quot;accuracy&amp;quot;) %&amp;gt;% select(.estimate) %&amp;gt;% pull&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A simple first attempt at building a model results in an accuracy of 78.1%, or 1.7 times better than our baseline model.&lt;/p&gt;
+&lt;div id=&#34;model-interpretation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Model interpretation&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results &amp;lt;- df_rf %&amp;gt;%
+  predict(df_testing) %&amp;gt;%
+  bind_cols(df_testing) %&amp;gt;%
+  select(pitcherId,actual=pitchType, predicted=.pred_class)
+
+# Permutation based importance
+cbind(rownames(df_rf$fit$importance), df_rf$fit$importance) %&amp;gt;%
+  as_tibble() %&amp;gt;%
+  select(predictor=V1, MeanDecreaseAccuracy)   %&amp;gt;%
+  mutate(MeanDecreaseAccuracy=as.numeric(MeanDecreaseAccuracy)) %&amp;gt;%
+  arrange(desc(MeanDecreaseAccuracy)) %&amp;gt;%
+  head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 2
+##   predictor       MeanDecreaseAccuracy
+##   &amp;lt;chr&amp;gt;                          &amp;lt;dbl&amp;gt;
+## 1 spinDir                        0.288
+## 2 az                             0.258
+## 3 ax                             0.253
+## 4 vy0                            0.248
+## 5 releaseVelocity                0.244
+## 6 x0                             0.190&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_probs &amp;lt;- df_rf %&amp;gt;%
+  predict(df_testing, type = &amp;quot;prob&amp;quot;) %&amp;gt;%
+  bind_cols(df_testing)
+
+df_probs %&amp;gt;%
+  roc_curve(pitchType, .pred_CH:.pred_SL, options=c(&amp;quot;quiet&amp;quot;=TRUE)) %&amp;gt;%
+  autoplot()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/results_roc-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;conf_mat(results, truth = actual, estimate = predicted)[[1]] %&amp;gt;%
+  prop.table(2) %&amp;gt;%
+  round(2) %&amp;gt;%
+  as_tibble() %&amp;gt;%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(n, accuracy=1), alpha = n), size = 6) +
+  theme(legend.position = &amp;quot;none&amp;quot;) +
+  labs(
+    title = &amp;quot;Confusion matrix&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/results_confusionmatrix-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Analysis&lt;/h1&gt;
+&lt;div id=&#34;which-pitch-is-often-misclassified&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Which pitch is often misclassified?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results %&amp;gt;%
+  mutate(correct=if_else(actual==predicted,1,0)) %&amp;gt;%
+  group_by(actual) %&amp;gt;%
+  summarize(n = n(),
+            wrong = n - sum(correct)) %&amp;gt;%
+  mutate(pct = wrong / n) %&amp;gt;%
+  arrange(desc(pct)) %&amp;gt;%
+  left_join(pitchtypes,by=c(&amp;quot;actual&amp;quot;=&amp;quot;pitchType&amp;quot;)) %&amp;gt;%
+  mutate(Percent=percent(pct)) %&amp;gt;%
+  select(`Pitch Type`=pitch, `Number of Pitches`=n, `Incorrect Category`=wrong, Percent) %&amp;gt;%
+  knitr::kable()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Pitch Type&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Number of Pitches&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Incorrect Category&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Percent&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Forkball&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;146&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;143&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;97.9%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Splitter&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2665&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1993&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;74.8%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Knuckle&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3109&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2009&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Sinker&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18339&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8227&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;44.9%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Two&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21979&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9148&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;41.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Cutter&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9708&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4031&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;41.5%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Screwball&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;40.0%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Eephus&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;77&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;27.3%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Curveball&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14577&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2070&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;14.2%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Knuckleball&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;758&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;107&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;14.1%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Slider&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;27619&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3213&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;11.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Changeup&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17878&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1979&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;11.1%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Four&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;62083&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6226&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;10.0%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;which-pitcher-often-has-his-pitches-misclassified&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Which pitcher often has his pitches misclassified?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results %&amp;gt;%
+  mutate(correct=if_else(actual==predicted,1,0)) %&amp;gt;%
+  group_by(pitcherId) %&amp;gt;%
+  summarize(n = n(),
+            wrong = n - sum(correct)) %&amp;gt;%
+  mutate(pct = wrong / n) %&amp;gt;%
+  arrange(desc(pct)) %&amp;gt;%
+  left_join(pitchers) %&amp;gt;%
+  filter(n&amp;gt;100) %&amp;gt;%
+  select(Pitcher=pitcher, `Number of Pitches`=n, `Incorrect Category`=wrong, Percent=pct) %&amp;gt;%
+  slice(1:20) %&amp;gt;%
+  knitr::kable(digits=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Pitcher&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Number of Pitches&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Incorrect Category&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Percent&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Jose Veras&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;256&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;169&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.6602&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Ross Wolf&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;175&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;111&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.6343&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Darin Downs&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;138&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.6014&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Corey Kluber&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;539&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;320&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5937&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Mitchell Boggs&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;123&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;73&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5935&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Brandon Cumpton&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;122&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;72&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5902&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Michael Kirkman&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;108&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;63&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5833&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Lucas Harrell&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;710&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;398&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5606&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Brett Cecil&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;230&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;127&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5522&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Tanner Roark&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;176&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;96&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5455&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Luis Ayala&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;145&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;78&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5379&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Derek Holland&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;837&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;436&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5209&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Tyler Cloyd&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;262&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;135&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5153&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Bryan Morris&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;238&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;121&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5084&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;David Hernandez&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;256&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;130&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5078&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Travis Blackley&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;211&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;105&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4976&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;P.J. Walters&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;155&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;77&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4968&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Roy Halladay&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;285&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;141&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4947&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Brandon League&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;250&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;121&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4840&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Scott Kazmir&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;674&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;323&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4792&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;does-the-ability-of-categorizing-pitch-types-changes-over-time&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Does the ability of categorizing pitch types changes over time?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_additional &amp;lt;- df_recipe %&amp;gt;%
+  bake(df.future)
+
+ggplot(df_additional %&amp;gt;% group_by(pitchType) %&amp;gt;% count() %&amp;gt;% arrange(desc(n)), aes(x=reorder(pitchType,-n),y=n)) +
+  geom_bar(stat=&amp;quot;identity&amp;quot;) +
+  geom_text(aes(label = ks(n), y=n), vjust = -.5, stat=&amp;quot;identity&amp;quot;) +
+  scale_y_continuous(labels=ks) + 
+  ylab(&amp;quot;Number of Pitches&amp;quot;) +
+  xlab(&amp;quot;Pitch Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/analysis_3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;future.performance &amp;lt;- predict(df_rf, df_additional, type = &amp;quot;prob&amp;quot;) %&amp;gt;%
+  bind_cols(predict(df_rf, df_additional)) %&amp;gt;%
+  bind_cols(select(df_additional, pitchType)) %&amp;gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&amp;quot;quiet&amp;quot;=T)) %&amp;gt;% 
+  knitr::kable(digits=4)
+
+future.results &amp;lt;- df_rf %&amp;gt;%
+  predict(df_additional) %&amp;gt;%
+  bind_cols(df_additional) %&amp;gt;%
+  select(pitcherId,actual=pitchType, predicted=.pred_class)
+
+conf_mat(future.results, truth = actual, estimate = predicted)[[1]] %&amp;gt;%
+  prop.table(2) %&amp;gt;%
+  round(2) %&amp;gt;%
+  as_tibble() %&amp;gt;%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(n, accuracy=1), alpha = n), size = 6) +
+  theme(legend.position = &amp;quot;none&amp;quot;) +
+  labs(
+    title = &amp;quot;Confusion matrix&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/analysis_3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Package of the Month: dygraphs</title>
+      <link>/post/20151008_potm_dygraphs/</link>
+      <pubDate>Thu, 08 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/post/20151008_potm_dygraphs/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/dygraphs/dygraph.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs/dygraph-combined.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs/shapes.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment/moment.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment-timezone/moment-timezone-with-data.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment-fquarter/moment-fquarter.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs-binding/dygraphs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;This post will give you some code snippets for using the dygraphs javascript package through R. This package is great for visualizing and interacting with time series data.&lt;/p&gt;
+&lt;p&gt;First, let’s get some data and load the package. Being a big Red Sox fan, let’s grab David Ortiz’s home run totals for each season in his career out of the Lahman package. In order to use the dygraphs package, we need our data to be an XTS object. We’ll order the home run totals by year and then create the xts object to show yearly totals.&lt;/p&gt;
+&lt;p&gt;At last, we can draw out a baseline graph to start out with.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressPackageStartupMessages(suppressWarnings(library(xts)))
+suppressPackageStartupMessages(suppressWarnings(library(Lahman)))
+suppressPackageStartupMessages(suppressWarnings(library(dygraphs)))
+suppressPackageStartupMessages(suppressWarnings(library(dplyr)))
+suppressPackageStartupMessages(suppressWarnings(library(lubridate)))
+
+# Get David Ortiz&amp;#39;s ID
+data(&amp;quot;Master&amp;quot;)
+david.ortiz &amp;lt;- Master %&amp;gt;% filter(nameFirst==&amp;quot;David&amp;quot;,nameLast==&amp;quot;Ortiz&amp;quot;) %&amp;gt;% select(playerID) %&amp;gt;% as.character
+
+# Get his hitting data
+do &amp;lt;- Batting %&amp;gt;%
+  filter(playerID==david.ortiz) %&amp;gt;%
+  arrange(yearID) 
+
+do.xts &amp;lt;- xts(x=do$HR,order.by=ymd(paste(do$yearID,&amp;quot;11&amp;quot;,&amp;quot;01&amp;quot;,sep=&amp;quot;-&amp;quot;)))
+
+# Create the plot
+dygraph(do.xts)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;labels&#34;:[&#34;year&#34;,&#34;V1&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60}}},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]]},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Well that was pretty easy. It automatically puts the interactive capabilities. Let’s start to clean it up a bit though by adjusting the series label and removing the vertical lines.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Add in a time selector
+dygraph(do.xts) %&amp;gt;% dyRangeSelector()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;labels&#34;:[&#34;year&#34;,&#34;V1&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60}},&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]]},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Adjust the label
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-3&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60}},&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}}},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]]},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Remove verticle lines
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-4&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]]},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Now let’s fill in the area under the line, add markers to each point, and label the Y axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fill in the graph
+dygraph(do.xts) %&amp;gt;% dyRangeSelector() %&amp;gt;% dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-5&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-5&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:false,&#34;pointSize&#34;:1,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Add markers
+dygraph(do.xts) %&amp;gt;% dyRangeSelector() %&amp;gt;% dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-6&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-6&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Add in Y axis label
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-7&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Let’s start to explain some of the events in David’s career. We can add a vertical line for the date he signed with the Red Sox and being the biased fan, let’s zoom in on years he played with the Red Sox. Finally, let’s mark each point for years he participated in the MLB All Star game.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Add in event for traded
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&amp;gt;%
+  dyEvent(x = &amp;quot;2003-01-22&amp;quot;, &amp;quot;Signed with the Red Sox&amp;quot;, labelLoc = &amp;quot;top&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[{&#34;pos&#34;:&#34;2003-01-22T00:00:00.000Z&#34;,&#34;label&#34;:&#34;Signed with the Red Sox&#34;,&#34;labelLoc&#34;:&#34;top&#34;,&#34;color&#34;:&#34;black&#34;,&#34;strokePattern&#34;:[7,3],&#34;axis&#34;:&#34;x&#34;}],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Preselect only years he played for the redsox
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector(dateWindow = c(&amp;quot;2003-01-23&amp;quot;, &amp;quot;2014-11-01&amp;quot;)) %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&amp;gt;%
+  dyEvent(x = &amp;quot;2003-01-22&amp;quot;, &amp;quot;Signed with the Red Sox&amp;quot;, labelLoc = &amp;quot;top&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-9&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-9&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;dateWindow&#34;:[&#34;2003-01-23T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;],&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[{&#34;pos&#34;:&#34;2003-01-22T00:00:00.000Z&#34;,&#34;label&#34;:&#34;Signed with the Red Sox&#34;,&#34;labelLoc&#34;:&#34;top&#34;,&#34;color&#34;:&#34;black&#34;,&#34;strokePattern&#34;:[7,3],&#34;axis&#34;:&#34;x&#34;}],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#A nnotate on all star game appearances
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector(dateWindow = c(&amp;quot;2003-01-23&amp;quot;, &amp;quot;2014-11-01&amp;quot;)) %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&amp;gt;%
+  dyAnnotation(&amp;quot;2004-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2005-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2006-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2007-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2008-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2010-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2011-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2012-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2013-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyEvent(x = &amp;quot;2003-01-22&amp;quot;, &amp;quot;Signed with the Red Sox&amp;quot;, labelLoc = &amp;quot;top&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-10&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-10&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;dateWindow&#34;:[&#34;2003-01-23T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;],&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[{&#34;x&#34;:&#34;2004-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2005-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2006-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2007-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2008-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2010-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2011-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2012-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2013-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;}],&#34;shadings&#34;:[],&#34;events&#34;:[{&#34;pos&#34;:&#34;2003-01-22T00:00:00.000Z&#34;,&#34;label&#34;:&#34;Signed with the Red Sox&#34;,&#34;labelLoc&#34;:&#34;top&#34;,&#34;color&#34;:&#34;black&#34;,&#34;strokePattern&#34;:[7,3],&#34;axis&#34;:&#34;x&#34;}],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Finally, let’s add in a second player, Albert Pujols.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Let&amp;#39;s add in another player
+albert.pujols &amp;lt;- Master %&amp;gt;% filter(nameFirst==&amp;quot;Albert&amp;quot;,nameLast==&amp;quot;Pujols&amp;quot;) %&amp;gt;% select(playerID) %&amp;gt;% as.character
+ap &amp;lt;- Batting %&amp;gt;%
+  filter(playerID==albert.pujols) %&amp;gt;%
+  arrange(yearID) 
+ap.xts &amp;lt;- xts(x=ap$HR,order.by=ymd(paste(ap$yearID,&amp;quot;11&amp;quot;,&amp;quot;01&amp;quot;,sep=&amp;quot;-&amp;quot;)))
+
+dygraph(cbind(do.xts,ap.xts)) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;do.xts&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dySeries(&amp;quot;ap.xts&amp;quot;, label = &amp;quot;Albert Pujols&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&amp;gt;%
+  dyLegend(labelsSeparateLines = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-11&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-11&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;},&#34;Albert Pujols&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;,&#34;Albert Pujols&#34;],&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false,&#34;legend&#34;:&#34;auto&#34;,&#34;labelsDivWidth&#34;:250,&#34;labelsShowZeroValues&#34;:true,&#34;labelsSeparateLines&#34;:true,&#34;hideOverlayOnMouseOut&#34;:true},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;,&#34;2017-11-01T00:00:00.000Z&#34;,&#34;2018-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38,null,null],[null,null,null,null,37,34,43,46,41,49,32,37,47,42,37,30,17,28,40,31,23,19]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

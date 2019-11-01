@@ -1,0 +1,1469 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.4.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Christopher Teixeira">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Data discussion My customary evening activity is listening to the NESN commentary during a Red Sox game. During one particular game, a pitcher threw a pitch they suspected was a screwball. Over the next few minutes, they discussed the the prevalence of screwballs in today’s game versus other pitches that could appear like screwballs. I took this as an opportunity to evaluate the movement on pitches and see if any in fact might be “more screwball-like”.">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/20190902_predicting_pitch_types/">
+
+  
+
+
+  
+
+  
+  
+  
+  <meta name="theme-color" content="rgb(0, 136, 204)">
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" integrity="sha256-ygkqlh3CYSUri3LhQxzdcm0n1EQvH2Y+U5S2idbLtxs=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/github.min.css" crossorigin="anonymous" title="hl-light" disabled>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark">
+        
+      
+    
+
+    
+
+    
+
+  
+
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=B612+Mono:400,700|Orbitron:400,700&display=swap">
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.min.ab796ead0eabd13b47d824bbc8b2475c.css">
+
+  
+
+  
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-8787445-7', 'auto');
+      
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="https://www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+  
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/img/favicon.ico">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/post/20190902_predicting_pitch_types/">
+
+  
+  
+  
+  
+    
+    
+  
+  
+  <meta property="twitter:card" content="summary">
+  
+  <meta property="twitter:site" content="@ct_analytics">
+  <meta property="twitter:creator" content="@ct_analytics">
+  
+  <meta property="og:site_name" content="Christopher Teixeira">
+  <meta property="og:url" content="/post/20190902_predicting_pitch_types/">
+  <meta property="og:title" content="Categorizing Pitches | Christopher Teixeira">
+  <meta property="og:description" content="Data discussion My customary evening activity is listening to the NESN commentary during a Red Sox game. During one particular game, a pitcher threw a pitch they suspected was a screwball. Over the next few minutes, they discussed the the prevalence of screwballs in today’s game versus other pitches that could appear like screwballs. I took this as an opportunity to evaluate the movement on pitches and see if any in fact might be “more screwball-like”."><meta property="og:image" content="/img/icon-192.png">
+  <meta property="twitter:image" content="/img/icon-192.png"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2019-09-02T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2019-09-02T00:00:00&#43;00:00">
+  
+
+  
+
+
+  
+
+
+
+
+
+  <title>Categorizing Pitches | Christopher Teixeira</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" class="dark">
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+<nav class="navbar navbar-light fixed-top navbar-expand-lg py-0 compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+      <a class="navbar-brand" href="/">Christopher Teixeira</a>
+      
+      <button type="button" class="navbar-toggler" data-toggle="collapse"
+              data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+        <span><i class="fas fa-bars"></i></span>
+      </button>
+      
+
+    
+    <div class="collapse navbar-collapse" id="navbar">
+
+      
+      
+      <ul class="navbar-nav mr-auto">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>About</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#skills"><span>Skills</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Experience</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#accomplishments"><span>Accomplishments</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#projects"><span>Projects</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/files/CTeixeira_Resume.pdf"><span>Resume</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+
+        
+
+        
+
+        
+
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+  <article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1 itemprop="name">Categorizing Pitches</h1>
+
+  
+
+  
+    
+
+
+
+<meta content="2019-09-02 00:00:00 &#43;0000 UTC" itemprop="datePublished">
+<meta content="2019-09-02 00:00:00 &#43;0000 UTC" itemprop="dateModified">
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    <time>September 2019</time>
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+  
+    
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/20190902_predicting_pitch_types/&amp;text=Categorizing%20Pitches" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/20190902_predicting_pitch_types/&amp;t=Categorizing%20Pitches" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=Categorizing%20Pitches&amp;body=/post/20190902_predicting_pitch_types/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/20190902_predicting_pitch_types/&amp;title=Categorizing%20Pitches" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=Categorizing%20Pitches%20/post/20190902_predicting_pitch_types/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/20190902_predicting_pitch_types/&amp;title=Categorizing%20Pitches" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style" itemprop="articleBody">
+      
+
+
+<div id="data-discussion" class="section level1">
+<h1>Data discussion</h1>
+<p>My customary evening activity is listening to the NESN commentary during a Red Sox game. During one particular game, a pitcher threw a pitch they suspected was a screwball. Over the next few minutes, they discussed the the prevalence of screwballs in today’s game versus other pitches that could appear like screwballs. I took this as an opportunity to evaluate the movement on pitches and see if any in fact might be “more screwball-like”.</p>
+<p>Using data provided by TruMedia for a hackathon, I looked into using their pitch-by-pitch data to see if this was even possible.</p>
+<p><em>pitchType</em>
+* CH - Changeup
+* CU - Curveball
+* FA - Fastball
+* FT - Two Seamer
+* FF - Four Seamer
+* FC - Cutter
+* SL - Slider
+* FS - Splitter
+* SI - Sinker
+* FO - Forkball
+* KN - Knuckleball
+* KC - Knuckle Curve
+* SC - Screwball
+* GY - Gyroball
+* EP - Eephus
+* PO - Pitchout
+* IN - Intentional Ball
+* AB - Automatic Ball
+* AS - Automatic Strike
+* UN - Unknown</p>
+<pre class="r"><code>ggplot(df %&gt;% group_by(pitchType) %&gt;% count() %&gt;% arrange(desc(n)), aes(x=reorder(pitchType,-n),y=n)) +
+  geom_bar(stat=&quot;identity&quot;) +
+  geom_text(aes(label = ks(n), y=n), vjust = -.5, stat=&quot;identity&quot;) +
+  scale_y_continuous(labels=ks) + 
+  ylab(&quot;Number of Pitches&quot;) +
+  xlab(&quot;Pitch Type&quot;)</code></pre>
+<p><img src="/post/20190902_predicting_pitch_types_files/figure-html/data_overview-1.png" width="672" /></p>
+<pre class="r"><code>removePitchTypes &lt;- c(&quot;PO&quot;,&quot;IN&quot;,&quot;AB&quot;,&quot;AS&quot;,&quot;FA&quot;,&quot;UN&quot;)
+df &lt;- filter(df,!(pitchType %in% removePitchTypes))
+num.pitch.types &lt;- df %&gt;% select(pitchType) %&gt;% distinct() %&gt;% count() %&gt;% pull()</code></pre>
+<p>Given that, we’re going to remove some pitch types. The pitch types we remove fall under two categories:
+1) “automatic” pitches like pitch outs, intentional balls
+2) uncommon pitches like “unknown” and “fastballs”</p>
+<div id="splitting-the-data-for-validation" class="section level2">
+<h2>Splitting the data for validation</h2>
+<pre class="r"><code>set.seed(4567)
+df_split &lt;- initial_split(df, prop = 0.75, strata = &quot;pitchType&quot;)
+
+response_train &lt;- ggplot(training(df_split),aes(x=pitchType, group=1)) +
+  geom_bar(aes(y =..prop..), stat=&quot;count&quot;, width=.75) +
+  geom_text(aes(label = scales::percent(..prop..), y=..prop..), vjust = -.5, stat=&quot;count&quot;) +
+  scale_y_continuous(labels=scales::percent) +
+  ylab(&quot;Relative frequencies&quot;) +
+  xlab(&quot;Pitch Type&quot;)
+response_test &lt;- ggplot(testing(df_split),aes(x=pitchType, group=1)) +
+  geom_bar(aes(y =..prop.., group=1), stat=&quot;count&quot;, width=.75) +
+  geom_text(aes(label = scales::percent(..prop..), y=..prop..), stat= &quot;count&quot;, vjust = -.5) +
+  scale_y_continuous(labels=scales::percent) +
+  ylab(&quot;Relative frequencies&quot;) +
+  xlab(&quot;Pitch Type&quot;)
+gridExtra::grid.arrange(response_train, response_test)</code></pre>
+<p><img src="/post/20190902_predicting_pitch_types_files/figure-html/data_split-1.png" width="672" /></p>
+</div>
+<div id="recipe-for-processing-data" class="section level2">
+<h2>Recipe for processing data</h2>
+<pre class="r"><code># Upsample minority class
+majority.class.amount &lt;- df_split %&gt;%
+  training() %&gt;%
+  group_by(pitchType) %&gt;%
+  summarize(n=n()) %&gt;%
+  arrange(desc(n)) %&gt;%
+  slice(1) %&gt;%
+  pull()
+
+minority.class.amount &lt;- 1000
+
+df_recipe &lt;- df_split %&gt;%
+  training() %&gt;%
+  recipe(pitchType ~ . - pitcherId) %&gt;%
+  # step_num2factor(pitcherId) %&gt;%
+  step_string2factor(pitcherHand, pitchType) %&gt;%
+  update_role(pitcherId, new_role = &quot;id variable&quot;) %&gt;%
+  step_upsample(pitchType, ratio=minority.class.amount/majority.class.amount) %&gt;%
+  step_center(all_predictors(), -all_outcomes(), -all_nominal()) %&gt;%
+  step_scale(all_predictors(), -all_outcomes(), -all_nominal()) %&gt;%
+  # step_corr(all_numeric(), - all_outcomes(), threshold = 0.5) %&gt;%
+  step_dummy(all_nominal(), -all_outcomes()) %&gt;%
+  step_naomit(px) %&gt;%
+  prep(retain=TRUE)
+
+df_recipe</code></pre>
+<p>Data Recipe</p>
+<p>Inputs:</p>
+<pre><code>    role #variables</code></pre>
+<p>id variable 1
+outcome 1
+predictor 16</p>
+<p>Training data contained 536894 data points and no missing data.</p>
+<p>Operations:</p>
+<p>Factor variables from pitcherHand, pitchType [trained]
+Up-sampling based on pitchType [trained]
+Centering for releaseVelocity, spinRate, spinDir, px, … [trained]
+Scaling for releaseVelocity, spinRate, spinDir, px, … [trained]
+Dummy variables from pitcherHand [trained]
+Removing rows with NA values in px</p>
+<pre class="r"><code>df_training &lt;- juice(df_recipe)
+df_testing &lt;- df_recipe %&gt;%
+  bake(testing(df_split))</code></pre>
+</div>
+</div>
+<div id="a-first-model" class="section level1">
+<h1>A first model</h1>
+<p>Our goal is to build a model that examines pitch types and whether they are categorized by pitch movement. The inspiration for this was built upon a comment that “screwballs” aren’t thrown anymore. While pitches can be categorized by the combination of how the pitcher holds the baseball with the arm movements, the behavior of the ball itself can vary slightly and begs the question, “do some two seam fastballs act like screwballs?” We’ll generalize this and understand if there are certain pitches that behave like others.</p>
+<div id="null-model" class="section level2">
+<h2>Null model</h2>
+<p>In order to appreciate the power of our model, let’s first create a null model to understand a baseline predictability. Parsnip has a function for figuring this out, although some basic data manipulation can come to the same conclusion. The null model essentially just says “always guess the majority class” (for classification models).</p>
+<pre class="r"><code># Using data manipulation and dplyr
+majority.class.accuracy &lt;- df %&gt;% group_by(pitchType) %&gt;% summarize(n=n()) %&gt;% mutate(pct=n/sum(n)) %&gt;% arrange(desc(n)) %&gt;% slice(1) %&gt;% select(pct) %&gt;% pull()
+
+# Using parsnip::nullmodel
+null.model &lt;- nullmodel(y=factor(df$pitchType))
+null.model.accuracy &lt;- null.model$pct %&gt;% as_tibble %&gt;% filter(y==null.model$value) %&gt;% select(n) %&gt;% pull()</code></pre>
+<p>Randomly guessing the majority class would give us an accuracy of 34.8%.</p>
+</div>
+<div id="improved-naive-model" class="section level2">
+<h2>Improved Naive model</h2>
+<p>We can do slightly better than that if we build a model based on the pitcher. This model will weight for what a pitcher normally throws.</p>
+<pre class="r"><code># Naive model
+df_rf_naive &lt;- rand_forest(trees = 100, mode = &quot;classification&quot;) %&gt;%
+  set_engine(&quot;randomForest&quot;, importance=T, localImp = T) %&gt;%
+  fit(pitchType ~ pitcherId, data = df_training)
+
+# Baseline results
+baseline.results &lt;- predict(df_rf_naive, df_testing, type = &quot;prob&quot;) %&gt;%
+  bind_cols(predict(df_rf_naive, df_testing)) %&gt;%
+  bind_cols(select(df_testing, pitchType)) %&gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&quot;quiet&quot;=T))
+
+baseline.results %&gt;% knitr::kable(digits=4)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">.metric</th>
+<th align="left">.estimator</th>
+<th align="right">.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">accuracy</td>
+<td align="left">multiclass</td>
+<td align="right">0.4629</td>
+</tr>
+<tr class="even">
+<td align="left">kap</td>
+<td align="left">multiclass</td>
+<td align="right">0.2902</td>
+</tr>
+<tr class="odd">
+<td align="left">mn_log_loss</td>
+<td align="left">multiclass</td>
+<td align="right">0.1878</td>
+</tr>
+<tr class="even">
+<td align="left">roc_auc</td>
+<td align="left">hand_till</td>
+<td align="right">0.7112</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>baseline.accuracy &lt;- baseline.results %&gt;% filter(.metric==&quot;accuracy&quot;) %&gt;% select(.estimate) %&gt;% pull</code></pre>
+<p>Our true baseline is now 46.3% that we will use in measuring performance of our model going forward.</p>
+</div>
+</div>
+<div id="building-a-full-model" class="section level1">
+<h1>Building a full model</h1>
+<pre class="r"><code># Full model
+df_rf &lt;- rand_forest(trees = 100, mode = &quot;classification&quot;) %&gt;%
+  set_engine(&quot;randomForest&quot;, importance=T, localImp = T) %&gt;%
+  fit(pitchType ~ . - pitcherId, data = df_training)
+
+df_rf</code></pre>
+<pre><code>## parsnip model object
+## 
+## 
+## Call:
+##  randomForest(x = as.data.frame(x), y = y, ntree = ~100, importance = ~T,      localImp = ~T) 
+##                Type of random forest: classification
+##                      Number of trees: 100
+## No. of variables tried at each split: 4
+## 
+##         OOB estimate of  error rate: 8.22%
+## Confusion matrix:
+##       CH    CU   EP    FC     FF  FO   FS    FT   KC   KN   SC    SI    SL
+## CH 52303    17    0    49    453   2  193   403    1   24    5   633   438
+## CU    28 40711    7    12      5   0    2     0  348   19    0     0  2012
+## EP     0     0 1000     0      0   0    0     0    0    0    0     0     0
+## FC    89    15    0 24372   1535   0    2    14    0    0    0    12  2727
+## FF   477     2    0   929 179915   0   14  3922    0    6    0  1547   329
+## FO    38     1    0     0     12 928    0    12    0    0    0     9     0
+## FS  1962     4    0    14     50   1 5660    27    0    4    0    67   116
+## FT   745     4    0     4   6366   2    6 55590    0    0    0  3288    19
+## KC    14  1594    0     3      0   0    2     0 7134    1    0     1   672
+## KN    42    61    0     0      0   0    2     0    2 2243    0     0    21
+## SC     0     0    0     0      0   0    0     0    0    0 1000     0     0
+## SI   788     0    0     7   3631   1    9  4747    0    0    0 45316    24
+## SL   388  1350    0  1293    377   0   35    11  188    5    0    23 78757
+##    class.error
+## CH  0.04068157
+## CU  0.05639255
+## EP  0.00000000
+## FC  0.15274977
+## FF  0.03861260
+## FO  0.07200000
+## FS  0.28399747
+## FT  0.15803344
+## KC  0.24275555
+## KN  0.05398566
+## SC  0.00000000
+## SI  0.16886452
+## SL  0.04452425</code></pre>
+<pre class="r"><code>full.model.results &lt;- predict(df_rf, df_testing, type = &quot;prob&quot;) %&gt;%
+  bind_cols(predict(df_rf, df_testing)) %&gt;%
+  bind_cols(select(df_testing, pitchType)) %&gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&quot;quiet&quot;=T))
+
+full.model.results %&gt;% knitr::kable(digits=4)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">.metric</th>
+<th align="left">.estimator</th>
+<th align="right">.estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">accuracy</td>
+<td align="left">multiclass</td>
+<td align="right">0.7811</td>
+</tr>
+<tr class="even">
+<td align="left">kap</td>
+<td align="left">multiclass</td>
+<td align="right">0.7266</td>
+</tr>
+<tr class="odd">
+<td align="left">mn_log_loss</td>
+<td align="left">multiclass</td>
+<td align="right">0.5613</td>
+</tr>
+<tr class="even">
+<td align="left">roc_auc</td>
+<td align="left">hand_till</td>
+<td align="right">0.9688</td>
+</tr>
+</tbody>
+</table>
+<pre class="r"><code>full.model.accuracy &lt;- full.model.results %&gt;% filter(.metric==&quot;accuracy&quot;) %&gt;% select(.estimate) %&gt;% pull</code></pre>
+<p>A simple first attempt at building a model results in an accuracy of 78.1%, or 1.7 times better than our baseline model.</p>
+<div id="model-interpretation" class="section level2">
+<h2>Model interpretation</h2>
+<pre class="r"><code>results &lt;- df_rf %&gt;%
+  predict(df_testing) %&gt;%
+  bind_cols(df_testing) %&gt;%
+  select(pitcherId,actual=pitchType, predicted=.pred_class)
+
+# Permutation based importance
+cbind(rownames(df_rf$fit$importance), df_rf$fit$importance) %&gt;%
+  as_tibble() %&gt;%
+  select(predictor=V1, MeanDecreaseAccuracy)   %&gt;%
+  mutate(MeanDecreaseAccuracy=as.numeric(MeanDecreaseAccuracy)) %&gt;%
+  arrange(desc(MeanDecreaseAccuracy)) %&gt;%
+  head()</code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   predictor       MeanDecreaseAccuracy
+##   &lt;chr&gt;                          &lt;dbl&gt;
+## 1 spinDir                        0.288
+## 2 az                             0.258
+## 3 ax                             0.253
+## 4 vy0                            0.248
+## 5 releaseVelocity                0.244
+## 6 x0                             0.190</code></pre>
+<pre class="r"><code>df_probs &lt;- df_rf %&gt;%
+  predict(df_testing, type = &quot;prob&quot;) %&gt;%
+  bind_cols(df_testing)
+
+df_probs %&gt;%
+  roc_curve(pitchType, .pred_CH:.pred_SL, options=c(&quot;quiet&quot;=TRUE)) %&gt;%
+  autoplot()</code></pre>
+<p><img src="/post/20190902_predicting_pitch_types_files/figure-html/results_roc-1.png" width="672" /></p>
+<pre class="r"><code>conf_mat(results, truth = actual, estimate = predicted)[[1]] %&gt;%
+  prop.table(2) %&gt;%
+  round(2) %&gt;%
+  as_tibble() %&gt;%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(n, accuracy=1), alpha = n), size = 6) +
+  theme(legend.position = &quot;none&quot;) +
+  labs(
+    title = &quot;Confusion matrix&quot;
+  )</code></pre>
+<p><img src="/post/20190902_predicting_pitch_types_files/figure-html/results_confusionmatrix-1.png" width="672" /></p>
+</div>
+</div>
+<div id="analysis" class="section level1">
+<h1>Analysis</h1>
+<div id="which-pitch-is-often-misclassified" class="section level2">
+<h2>Which pitch is often misclassified?</h2>
+<pre class="r"><code>results %&gt;%
+  mutate(correct=if_else(actual==predicted,1,0)) %&gt;%
+  group_by(actual) %&gt;%
+  summarize(n = n(),
+            wrong = n - sum(correct)) %&gt;%
+  mutate(pct = wrong / n) %&gt;%
+  arrange(desc(pct)) %&gt;%
+  left_join(pitchtypes,by=c(&quot;actual&quot;=&quot;pitchType&quot;)) %&gt;%
+  mutate(Percent=percent(pct)) %&gt;%
+  select(`Pitch Type`=pitch, `Number of Pitches`=n, `Incorrect Category`=wrong, Percent) %&gt;%
+  knitr::kable()</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Pitch Type</th>
+<th align="right">Number of Pitches</th>
+<th align="right">Incorrect Category</th>
+<th align="left">Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Forkball</td>
+<td align="right">146</td>
+<td align="right">143</td>
+<td align="left">97.9%</td>
+</tr>
+<tr class="even">
+<td align="left">Splitter</td>
+<td align="right">2665</td>
+<td align="right">1993</td>
+<td align="left">74.8%</td>
+</tr>
+<tr class="odd">
+<td align="left">Knuckle</td>
+<td align="right">3109</td>
+<td align="right">2009</td>
+<td align="left">64.6%</td>
+</tr>
+<tr class="even">
+<td align="left">Sinker</td>
+<td align="right">18339</td>
+<td align="right">8227</td>
+<td align="left">44.9%</td>
+</tr>
+<tr class="odd">
+<td align="left">Two</td>
+<td align="right">21979</td>
+<td align="right">9148</td>
+<td align="left">41.6%</td>
+</tr>
+<tr class="even">
+<td align="left">Cutter</td>
+<td align="right">9708</td>
+<td align="right">4031</td>
+<td align="left">41.5%</td>
+</tr>
+<tr class="odd">
+<td align="left">Screwball</td>
+<td align="right">25</td>
+<td align="right">10</td>
+<td align="left">40.0%</td>
+</tr>
+<tr class="even">
+<td align="left">Eephus</td>
+<td align="right">77</td>
+<td align="right">21</td>
+<td align="left">27.3%</td>
+</tr>
+<tr class="odd">
+<td align="left">Curveball</td>
+<td align="right">14577</td>
+<td align="right">2070</td>
+<td align="left">14.2%</td>
+</tr>
+<tr class="even">
+<td align="left">Knuckleball</td>
+<td align="right">758</td>
+<td align="right">107</td>
+<td align="left">14.1%</td>
+</tr>
+<tr class="odd">
+<td align="left">Slider</td>
+<td align="right">27619</td>
+<td align="right">3213</td>
+<td align="left">11.6%</td>
+</tr>
+<tr class="even">
+<td align="left">Changeup</td>
+<td align="right">17878</td>
+<td align="right">1979</td>
+<td align="left">11.1%</td>
+</tr>
+<tr class="odd">
+<td align="left">Four</td>
+<td align="right">62083</td>
+<td align="right">6226</td>
+<td align="left">10.0%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="which-pitcher-often-has-his-pitches-misclassified" class="section level2">
+<h2>Which pitcher often has his pitches misclassified?</h2>
+<pre class="r"><code>results %&gt;%
+  mutate(correct=if_else(actual==predicted,1,0)) %&gt;%
+  group_by(pitcherId) %&gt;%
+  summarize(n = n(),
+            wrong = n - sum(correct)) %&gt;%
+  mutate(pct = wrong / n) %&gt;%
+  arrange(desc(pct)) %&gt;%
+  left_join(pitchers) %&gt;%
+  filter(n&gt;100) %&gt;%
+  select(Pitcher=pitcher, `Number of Pitches`=n, `Incorrect Category`=wrong, Percent=pct) %&gt;%
+  slice(1:20) %&gt;%
+  knitr::kable(digits=4)</code></pre>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Pitcher</th>
+<th align="right">Number of Pitches</th>
+<th align="right">Incorrect Category</th>
+<th align="right">Percent</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Jose Veras</td>
+<td align="right">256</td>
+<td align="right">169</td>
+<td align="right">0.6602</td>
+</tr>
+<tr class="even">
+<td align="left">Ross Wolf</td>
+<td align="right">175</td>
+<td align="right">111</td>
+<td align="right">0.6343</td>
+</tr>
+<tr class="odd">
+<td align="left">Darin Downs</td>
+<td align="right">138</td>
+<td align="right">83</td>
+<td align="right">0.6014</td>
+</tr>
+<tr class="even">
+<td align="left">Corey Kluber</td>
+<td align="right">539</td>
+<td align="right">320</td>
+<td align="right">0.5937</td>
+</tr>
+<tr class="odd">
+<td align="left">Mitchell Boggs</td>
+<td align="right">123</td>
+<td align="right">73</td>
+<td align="right">0.5935</td>
+</tr>
+<tr class="even">
+<td align="left">Brandon Cumpton</td>
+<td align="right">122</td>
+<td align="right">72</td>
+<td align="right">0.5902</td>
+</tr>
+<tr class="odd">
+<td align="left">Michael Kirkman</td>
+<td align="right">108</td>
+<td align="right">63</td>
+<td align="right">0.5833</td>
+</tr>
+<tr class="even">
+<td align="left">Lucas Harrell</td>
+<td align="right">710</td>
+<td align="right">398</td>
+<td align="right">0.5606</td>
+</tr>
+<tr class="odd">
+<td align="left">Brett Cecil</td>
+<td align="right">230</td>
+<td align="right">127</td>
+<td align="right">0.5522</td>
+</tr>
+<tr class="even">
+<td align="left">Tanner Roark</td>
+<td align="right">176</td>
+<td align="right">96</td>
+<td align="right">0.5455</td>
+</tr>
+<tr class="odd">
+<td align="left">Luis Ayala</td>
+<td align="right">145</td>
+<td align="right">78</td>
+<td align="right">0.5379</td>
+</tr>
+<tr class="even">
+<td align="left">Derek Holland</td>
+<td align="right">837</td>
+<td align="right">436</td>
+<td align="right">0.5209</td>
+</tr>
+<tr class="odd">
+<td align="left">Tyler Cloyd</td>
+<td align="right">262</td>
+<td align="right">135</td>
+<td align="right">0.5153</td>
+</tr>
+<tr class="even">
+<td align="left">Bryan Morris</td>
+<td align="right">238</td>
+<td align="right">121</td>
+<td align="right">0.5084</td>
+</tr>
+<tr class="odd">
+<td align="left">David Hernandez</td>
+<td align="right">256</td>
+<td align="right">130</td>
+<td align="right">0.5078</td>
+</tr>
+<tr class="even">
+<td align="left">Travis Blackley</td>
+<td align="right">211</td>
+<td align="right">105</td>
+<td align="right">0.4976</td>
+</tr>
+<tr class="odd">
+<td align="left">P.J. Walters</td>
+<td align="right">155</td>
+<td align="right">77</td>
+<td align="right">0.4968</td>
+</tr>
+<tr class="even">
+<td align="left">Roy Halladay</td>
+<td align="right">285</td>
+<td align="right">141</td>
+<td align="right">0.4947</td>
+</tr>
+<tr class="odd">
+<td align="left">Brandon League</td>
+<td align="right">250</td>
+<td align="right">121</td>
+<td align="right">0.4840</td>
+</tr>
+<tr class="even">
+<td align="left">Scott Kazmir</td>
+<td align="right">674</td>
+<td align="right">323</td>
+<td align="right">0.4792</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="does-the-ability-of-categorizing-pitch-types-changes-over-time" class="section level2">
+<h2>Does the ability of categorizing pitch types changes over time?</h2>
+<pre class="r"><code>df_additional &lt;- df_recipe %&gt;%
+  bake(df.future)
+
+ggplot(df_additional %&gt;% group_by(pitchType) %&gt;% count() %&gt;% arrange(desc(n)), aes(x=reorder(pitchType,-n),y=n)) +
+  geom_bar(stat=&quot;identity&quot;) +
+  geom_text(aes(label = ks(n), y=n), vjust = -.5, stat=&quot;identity&quot;) +
+  scale_y_continuous(labels=ks) + 
+  ylab(&quot;Number of Pitches&quot;) +
+  xlab(&quot;Pitch Type&quot;)</code></pre>
+<p><img src="/post/20190902_predicting_pitch_types_files/figure-html/analysis_3-1.png" width="672" /></p>
+<pre class="r"><code>future.performance &lt;- predict(df_rf, df_additional, type = &quot;prob&quot;) %&gt;%
+  bind_cols(predict(df_rf, df_additional)) %&gt;%
+  bind_cols(select(df_additional, pitchType)) %&gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&quot;quiet&quot;=T)) %&gt;% 
+  knitr::kable(digits=4)
+
+future.results &lt;- df_rf %&gt;%
+  predict(df_additional) %&gt;%
+  bind_cols(df_additional) %&gt;%
+  select(pitcherId,actual=pitchType, predicted=.pred_class)
+
+conf_mat(future.results, truth = actual, estimate = predicted)[[1]] %&gt;%
+  prop.table(2) %&gt;%
+  round(2) %&gt;%
+  as_tibble() %&gt;%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(n, accuracy=1), alpha = n), size = 6) +
+  theme(legend.position = &quot;none&quot;) +
+  labs(
+    title = &quot;Confusion matrix&quot;
+  )</code></pre>
+<p><img src="/post/20190902_predicting_pitch_types_files/figure-html/analysis_3-2.png" width="672" /></p>
+</div>
+</div>
+
+    </div>
+
+    
+
+
+    
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/r/">R</a>
+  
+  <a class="badge badge-light" href="/tags/machine-learning/">Machine Learning</a>
+  
+</div>
+
+
+
+    
+      
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  <div class="media author-card" itemscope itemtype="http://schema.org/Person">
+    
+      
+      <img class="portrait mr-3" src="/authors/admin/avatar_hu6209ba05c086e7f0738a304fc200927d_77035_250x250_fill_q90_lanczos_center.jpg" itemprop="image" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title" itemprop="name"><a href="/">Christopher Teixeira</a></h5>
+      <h6 class="card-subtitle">Department Chief Engineer</h6>
+      <p class="card-text" itemprop="description">My research interests include using my skills for good and playing with baseball data. matter.</p>
+      <ul class="network-icon" aria-hidden="true">
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+          <li>
+            <a itemprop="sameAs" href="mailto:feasibleanalytics@gmail.com" >
+              <i class="fas fa-envelope"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://twitter.com/CT_Analytics" target="_blank" rel="noopener">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://scholar.google.com/citations?user=rBKnQG0AAAAJ&amp;hl=en" target="_blank" rel="noopener">
+              <i class="ai ai-google-scholar"></i>
+            </a>
+          </li>
+        
+          
+          
+          
+            
+          
+          
+          
+          
+          
+            
+          
+          <li>
+            <a itemprop="sameAs" href="https://github.com/ct-analytics" target="_blank" rel="noopener">
+              <i class="fab fa-github"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+
+      
+      
+      <div class="article-widget">
+        <div class="hr-light"></div>
+        <h3>Related</h3>
+        <ul>
+          
+          <li><a href="/project/state-engagement-to-address-opioid-overprescribing-and-misuse/">State Engagement to Address Opioid Overprescribing and Misuse</a></li>
+          
+          <li><a href="/project/predicting-pitch-types/">Predicting Pitch Types</a></li>
+          
+          <li><a href="/project/predictive-analytics-child-welfare/">Predictive Analytics in Child Welfare</a></li>
+          
+          <li><a href="/project/children-at-risk-research/">Children at Risk Research</a></li>
+          
+          <li><a href="/post/20151008_potm_dygraphs/">Package of the Month: dygraphs</a></li>
+          
+        </ul>
+      </div>
+      
+    
+
+    
+
+    
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" integrity="sha256-X5PoE3KU5l+JcX+w09p/wHl9AzK333C4hJ2I9S5mD4M=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/highlight.min.js" integrity="sha256-aYTdUrn6Ow1DDgh5JTc3aDGnnju48y/1c8s1dgkYPQ8=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.6/languages/r.min.js"></script>
+        
+      
+
+      
+      
+    
+
+    
+    
+
+    
+    
+    <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="/js/academic.min.dc856155b640fa1cd8bd8b7b068fe79c.js"></script>
+
+    
+
+
+
+
+
+
+  
+  <div class="container">
+    <footer class="site-footer">
+  
+
+  <p class="powered-by">
+    &copy; 2019 &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" id="back_to_top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

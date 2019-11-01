@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SAIC | Christopher Teixeira</title>
+    <link>/tags/saic/</link>
+      <atom:link href="/tags/saic/index.xml" rel="self" type="application/rss+xml" />
+    <description>SAIC</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 01 Jul 2009 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>SAIC</title>
+      <link>/tags/saic/</link>
+    </image>
+    
+    <item>
+      <title>Port Operations Analysis for PNNL</title>
+      <link>/project/pnnl/</link>
+      <pubDate>Wed, 01 Jul 2009 00:00:00 +0000</pubDate>
+      <guid>/project/pnnl/</guid>
+      <description>&lt;p&gt;Using AnyLogic to build a combined Discrete Event / Agent Based model to determine the effects of introducing delays to a seaport&amp;rsquo;s operations. Build reports given the results of a sensitivity analysis or Monte Carlo run version of the model. Compiled an applet version of the model and combined with an HTML interface to supply to the customer.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transit Risk and Assessment Methodology</title>
+      <link>/project/tram/</link>
+      <pubDate>Sat, 01 Jul 2006 00:00:00 +0000</pubDate>
+      <guid>/project/tram/</guid>
+      <description>&lt;p&gt;Served as the data manager for analysis of counter-terrorism defense measures in place for several mass transit systems under the Transit Risk Assessment Module (TRAM). Assisted in recording data at meetings and on-site visits. Track changes to and finalize documents for delivery to the customer. Performed cost-benefit analysis (CBA) for several jurisdictions using the Risk Management Tool (RMT). Prepared materials for TRAM workshops and adjusted data during the workshops to provide accurate results. Aided as the CBA specialist during the TRAM workshops. Instructed on proper use of the RMT software.&lt;/p&gt;
+
+&lt;p&gt;Updated the TRAM methodology to include multi-hazards and aggregated decision tactics. Built the new methodology into EXCEL through worksheet functions and VBA.&lt;/p&gt;
+
+&lt;p&gt;Using specific projects developed by Port Authority of New York and New Jersey (PANYNJ), adjusted pieces of the risk formula and calculated a ten year lifecycle cost in order to analyze and update the priority of projects to be implemented. Developed a specialized toolkit in EXCEL to run a cost benefit analysis and select optimal points using a pareto frontier.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NASA - Probabilistic Campaign Manifest Analysis Tool</title>
+      <link>/project/pcmat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/project/pcmat/</guid>
+      <description>&lt;p&gt;Probabilistic Campaign Manifest Analysis Tool (PCMAT) was an excel based tool that would take in a manifest for a lunar campaign and run a simulation to evaluate various metrics about the campaign. I updated and expanded the capabilities of the this tool to track new metrics and increase the number of Bernoulli trials run within the course of a campaign. In addition, I improved the efficiency of the model through VBA and advanced EXCEL worksheet formulas.&lt;/p&gt;
+
+&lt;p&gt;Our team&amp;rsquo;s effort on this work was acknowledged in the &amp;ldquo;&lt;a href=&#34;http://www.nasa.gov/pdf/396093main_HSF_Cmte_FinalReport.pdf&#34;&gt;SEEKING A HUMAN SPACEFLIGHT PROGRAM WORTHY OF A GREAT NATION&lt;/a&gt;&amp;rdquo; report to Congress.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

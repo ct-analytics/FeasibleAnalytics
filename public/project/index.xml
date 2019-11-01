@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects | Christopher Teixeira</title>
+    <link>/project/</link>
+      <atom:link href="/project/index.xml" rel="self" type="application/rss+xml" />
+    <description>Projects</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Tue, 11 Sep 2018 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Projects</title>
+      <link>/project/</link>
+    </image>
+    
+    <item>
+      <title>State Engagement to Address Opioid Overprescribing and Misuse</title>
+      <link>/project/state-engagement-to-address-opioid-overprescribing-and-misuse/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/project/state-engagement-to-address-opioid-overprescribing-and-misuse/</guid>
+      <description>&lt;p&gt;To be filled in later.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Predicting Pitch Types</title>
+      <link>/project/predicting-pitch-types/</link>
+      <pubDate>Wed, 01 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>/project/predicting-pitch-types/</guid>
+      <description>&lt;p&gt;TruMedia Networks sponsored their 2nd Baseball Analytics Hackathon to bring together some of sport&amp;rsquo;s brightest developers and analysts to see what projects and analysis they can create. Providing pitch data over the previous three years, I took the opportunity to explore the ability to predict the next pitch type. The link for this project walks through my analysis in R using a multinomial logistic regression model to predict pitch types for Jon Lester.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Predictive Analytics in Child Welfare</title>
+      <link>/project/predictive-analytics-child-welfare/</link>
+      <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>/project/predictive-analytics-child-welfare/</guid>
+      <description>&lt;p&gt;Lead a small team that interviewed several child welfare agencies to understand their progress in utilizing predictive analytics. This environmental scan resulted in two publicly released documents hosted on the Department of Health and Human Services Assistant Secretary for Planning and Evaluation website.&lt;/p&gt;
+
+&lt;p&gt;Separately, I led a small team that brought together six government agencies to analyze data around children in foster care to understand how their experiences impact their ability to lead health and independent lives. This involved working directly with a state to obtain and analyze their data using predictive analytics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Department of Energy Cost and Schedule Tool</title>
+      <link>/project/doe-cost-and-schedule-tool/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/project/doe-cost-and-schedule-tool/</guid>
+      <description>&lt;p&gt;Developed a discrete simulation model capable of performing lifecycle cost and schedule analysis. This model supports executives that make decisions on alternative strategies which are expected to cost on the order of tens of billions of dollars. The model, built entirely in JavaScript using SIM.JS, allows users to configure the schedule and efficiency of each alternative. After the model completes, results are displayed using a combination of D3 and TimelineJS libraries.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Veteran Benefits Administration Command and Control Model</title>
+      <link>/project/vba-command-and-control-model/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/project/vba-command-and-control-model/</guid>
+      <description>&lt;p&gt;Coordinate efforts and approaches between teams to optimize approaches. Advise on the use of data for inputs into a discrete event simulation and the model out visualization.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Children at Risk Research</title>
+      <link>/project/children-at-risk-research/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>/project/children-at-risk-research/</guid>
+      <description>&lt;p&gt;The Children at Risk research project looks at which information is important at determining which children under the age of ten are at higher risk for fatality due to abuse and neglect. Leading a small team, we&amp;rsquo;ve collected data from multiple parts of a local Health and Human Services Agency to bring together and understand some of the data quality issues that might exist in other HHS agencies. We use R (specifically the CARET library) to identify which factors are the most important in determining children who are at higher risk due to fatality. Using this information, we hope to design a data visualization tool that will help caseworkers identify those children at higher risk of fatality due to abuse and neglect.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Financial Metrics Visual Model</title>
+      <link>/project/financial-metrics-visual-model/</link>
+      <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+      <guid>/project/financial-metrics-visual-model/</guid>
+      <description>&lt;p&gt;The Financial Metrics Visual Model is a tool designed to help MITRE leadership understand the impact of their decisions on high-level MITRE financial metrics. Working with members of the MITRE Finance department, I created a interactive system dynamics model that will allow the user to adjust high level inputs to see how they impact both MITRE financial metrics and other intermediate values used in calculating those metrics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Strategic Workforce Model</title>
+      <link>/project/strategic-workforce-model/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>/project/strategic-workforce-model/</guid>
+      <description>&lt;p&gt;The Strategic Workforce Modeling project focuses on hiring goals directors set for their division to project out what their staff will project to be in five years. Working in AnyLogic, I&amp;rsquo;ve updated the Agent Based Model to be more efficient, account for additional staff behavior, and produce data for Tableau. The Tableau workbook blends model outputs together to create a dashboard for directors to understand the impact of their hiring policies and the uncertainty of what their staff levels will look like over the next five years.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Real Time Predictive Modeling</title>
+      <link>/project/realtime-predictive-modeling/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>/project/realtime-predictive-modeling/</guid>
+      <description>&lt;p&gt;Worked directly with a client to design data sources that allow for real time modeling and scoring. Led a team of statisticians to consolidate knowledge and design best practices in advanced modeling techniques for near real time model building.&lt;/p&gt;
+
+&lt;p&gt;Designed a methodology to detect and predict client behavior patterns. Results of this methodology are intended to influence real-time marketing decisions to improve response rates.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MLB Player Similarity</title>
+      <link>/project/mlb-player-similarity/</link>
+      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
+      <guid>/project/mlb-player-similarity/</guid>
+      <description>&lt;p&gt;Using a combination of dynamic programming and social network analysis, I compare a player&amp;rsquo;s career stats against other players to figure out who are the most similar. After determining which players are similar, I use various social network analysis techniques to be able to cluster and categorize players.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sentiment Analysis for specific Brand/Products</title>
+      <link>/project/sentiment-analysis/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>/project/sentiment-analysis/</guid>
+      <description>&lt;p&gt;Analyze social media (Twitter) to determine sentiment around a client&amp;rsquo;s brand and specific products. Using R, analyzed tweets to determine shifts in sentiment over time about a client&amp;rsquo;s brand and general effectiveness of customer service. Produced visualizations through R and Tableau to help executives understand the sentiment analysis results.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Customer Attrition Analysis</title>
+      <link>/project/customer-attrition-analysis/</link>
+      <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
+      <guid>/project/customer-attrition-analysis/</guid>
+      <description>&lt;p&gt;I worked with team members to build a Bayesian Belief Network (BBN) on large data sources in Netezza to predict the likelihood of a person closing an account with our client. I compared the BBN model results against Logistic Regression to determine best modeling approach. The results showed that the Logistic Regression approach provided more accurate results, but required more resources to get that result.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JIEDDO - Operations Research and Systems Analysis Support</title>
+      <link>/project/jieddo/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      <guid>/project/jieddo/</guid>
+      <description>&lt;p&gt;I support JIEDDO using various analytical techniques including Analytic Hierarchy Process (AHP) and Regression Analysis. I created and tested a metric to help support decision making for various groups of people working with JIEDDO. I transferred complicated projects in EXCEL and ACCESS to SAS, improving the run-time and product quality. I created SAS Stored Processes to help streamline report generation, support business intelligence, and produce high quality graphics for all customers. I wrote a process to clean raw data and format the data using regular expression parsing on ingest of the data feeds. I integrated a process to parse XML files and create new databases from the results, making new sources of data available for a multitude of colleagues. I designed a database to enhance reporting and help determine an optimal solution to a resource allocation problem.&lt;/p&gt;
+
+&lt;p&gt;Image: US soldiers examine evidence at an IED training site at the National Training Center at Fort Irwin, California, US.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Healthcare Claims Fraud</title>
+      <link>/project/aetna/</link>
+      <pubDate>Mon, 01 Nov 2010 00:00:00 +0000</pubDate>
+      <guid>/project/aetna/</guid>
+      <description>&lt;p&gt;Worked with a team to determine the best use of IBM’s analytical skills to help Aetna improve their business. Modified a SAS multiplicative regression model to be more flexible with data and improve efficiency. Determine the important factors in improving care management efficiency for existing programs at Aetna.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optimizing Team Assignments</title>
+      <link>/project/nvss/</link>
+      <pubDate>Sun, 01 Aug 2010 00:00:00 +0000</pubDate>
+      <guid>/project/nvss/</guid>
+      <description>&lt;p&gt;The teams in the Northern Virginia Senior Softball (NVSS) league are reorganized every year with the desire to make them as even as possible and promote social interactions. This project’s goals were to develop a methodology to produce team assignments for players such that the teams are equal in regards to player ability and other attributes. Multiple regression was employed to obtain offensive, defensive, and team metrics. An integer program (IP) model was developed where constraints were aligned with the goals of the NVSS league to solve the assignment problem. The IP model was linked to a team assignment tool which allows the user to select settings and parameters before running the model.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Port Operations Analysis for PNNL</title>
+      <link>/project/pnnl/</link>
+      <pubDate>Wed, 01 Jul 2009 00:00:00 +0000</pubDate>
+      <guid>/project/pnnl/</guid>
+      <description>&lt;p&gt;Using AnyLogic to build a combined Discrete Event / Agent Based model to determine the effects of introducing delays to a seaport&amp;rsquo;s operations. Build reports given the results of a sensitivity analysis or Monte Carlo run version of the model. Compiled an applet version of the model and combined with an HTML interface to supply to the customer.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transit Risk and Assessment Methodology</title>
+      <link>/project/tram/</link>
+      <pubDate>Sat, 01 Jul 2006 00:00:00 +0000</pubDate>
+      <guid>/project/tram/</guid>
+      <description>&lt;p&gt;Served as the data manager for analysis of counter-terrorism defense measures in place for several mass transit systems under the Transit Risk Assessment Module (TRAM). Assisted in recording data at meetings and on-site visits. Track changes to and finalize documents for delivery to the customer. Performed cost-benefit analysis (CBA) for several jurisdictions using the Risk Management Tool (RMT). Prepared materials for TRAM workshops and adjusted data during the workshops to provide accurate results. Aided as the CBA specialist during the TRAM workshops. Instructed on proper use of the RMT software.&lt;/p&gt;
+
+&lt;p&gt;Updated the TRAM methodology to include multi-hazards and aggregated decision tactics. Built the new methodology into EXCEL through worksheet functions and VBA.&lt;/p&gt;
+
+&lt;p&gt;Using specific projects developed by Port Authority of New York and New Jersey (PANYNJ), adjusted pieces of the risk formula and calculated a ten year lifecycle cost in order to analyze and update the priority of projects to be implemented. Developed a specialized toolkit in EXCEL to run a cost benefit analysis and select optimal points using a pareto frontier.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Statistical Analysis of Defensive Production in Major League Baseball</title>
+      <link>/project/mqp/</link>
+      <pubDate>Thu, 01 Jun 2006 00:00:00 +0000</pubDate>
+      <guid>/project/mqp/</guid>
+      <description>&lt;p&gt;While many statistical measures have been devised to measure team and player performance in professional baseball, relatively little work has been done to study and improve measures of defensive performance. This project’s goals were to model defensive contribution to team performance and develop related measures of individual player defensive production. Factor analysis was employed to extract positional factors and combine them with pitching and offensive measures into a final logistic regression model to determine effects of defense on team performance.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NASA - Probabilistic Campaign Manifest Analysis Tool</title>
+      <link>/project/pcmat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/project/pcmat/</guid>
+      <description>&lt;p&gt;Probabilistic Campaign Manifest Analysis Tool (PCMAT) was an excel based tool that would take in a manifest for a lunar campaign and run a simulation to evaluate various metrics about the campaign. I updated and expanded the capabilities of the this tool to track new metrics and increase the number of Bernoulli trials run within the course of a campaign. In addition, I improved the efficiency of the model through VBA and advanced EXCEL worksheet formulas.&lt;/p&gt;
+
+&lt;p&gt;Our team&amp;rsquo;s effort on this work was acknowledged in the &amp;ldquo;&lt;a href=&#34;http://www.nasa.gov/pdf/396093main_HSF_Cmte_FinalReport.pdf&#34;&gt;SEEKING A HUMAN SPACEFLIGHT PROGRAM WORTHY OF A GREAT NATION&lt;/a&gt;&amp;rdquo; report to Congress.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

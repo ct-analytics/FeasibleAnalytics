@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Discrete Event Simulation | Feasible Analytics</title>
+    <link>/Users/christopherteixeira/Google%20Drive/R/FeasibleAnalytics/public/tags/discrete-event-simulation/</link>
+      <atom:link href="/Users/christopherteixeira/Google%20Drive/R/FeasibleAnalytics/public/tags/discrete-event-simulation/index.xml" rel="self" type="application/rss+xml" />
+    <description>Discrete Event Simulation</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/Users/christopherteixeira/Google%20Drive/R/FeasibleAnalytics/public/img/icon-192.png</url>
+      <title>Discrete Event Simulation</title>
+      <link>/Users/christopherteixeira/Google%20Drive/R/FeasibleAnalytics/public/tags/discrete-event-simulation/</link>
+    </image>
+    
+    <item>
+      <title>Department of Energy Cost and Schedule Tool</title>
+      <link>/Users/christopherteixeira/Google%20Drive/R/FeasibleAnalytics/public/project/doe-cost-and-schedule-tool/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/Users/christopherteixeira/Google%20Drive/R/FeasibleAnalytics/public/project/doe-cost-and-schedule-tool/</guid>
+      <description>&lt;p&gt;Developed a discrete simulation model capable of performing lifecycle cost and schedule analysis. This model supports executives that make decisions on alternative strategies which are expected to cost on the order of tens of billions of dollars. The model, built entirely in JavaScript using SIM.JS, allows users to configure the schedule and efficiency of each alternative. After the model completes, results are displayed using a combination of D3 and TimelineJS libraries.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

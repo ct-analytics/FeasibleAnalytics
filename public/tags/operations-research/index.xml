@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Operations Research | Christopher Teixeira</title>
+    <link>/tags/operations-research/</link>
+      <atom:link href="/tags/operations-research/index.xml" rel="self" type="application/rss+xml" />
+    <description>Operations Research</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 27 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Operations Research</title>
+      <link>/tags/operations-research/</link>
+    </image>
+    
+    <item>
+      <title>Department of Energy Cost and Schedule Tool</title>
+      <link>/project/doe-cost-and-schedule-tool/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/project/doe-cost-and-schedule-tool/</guid>
+      <description>&lt;p&gt;Developed a discrete simulation model capable of performing lifecycle cost and schedule analysis. This model supports executives that make decisions on alternative strategies which are expected to cost on the order of tens of billions of dollars. The model, built entirely in JavaScript using SIM.JS, allows users to configure the schedule and efficiency of each alternative. After the model completes, results are displayed using a combination of D3 and TimelineJS libraries.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Veteran Benefits Administration Command and Control Model</title>
+      <link>/project/vba-command-and-control-model/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/project/vba-command-and-control-model/</guid>
+      <description>&lt;p&gt;Coordinate efforts and approaches between teams to optimize approaches. Advise on the use of data for inputs into a discrete event simulation and the model out visualization.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Strategic Workforce Model</title>
+      <link>/project/strategic-workforce-model/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>/project/strategic-workforce-model/</guid>
+      <description>&lt;p&gt;The Strategic Workforce Modeling project focuses on hiring goals directors set for their division to project out what their staff will project to be in five years. Working in AnyLogic, I&amp;rsquo;ve updated the Agent Based Model to be more efficient, account for additional staff behavior, and produce data for Tableau. The Tableau workbook blends model outputs together to create a dashboard for directors to understand the impact of their hiring policies and the uncertainty of what their staff levels will look like over the next five years.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JIEDDO - Operations Research and Systems Analysis Support</title>
+      <link>/project/jieddo/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      <guid>/project/jieddo/</guid>
+      <description>&lt;p&gt;I support JIEDDO using various analytical techniques including Analytic Hierarchy Process (AHP) and Regression Analysis. I created and tested a metric to help support decision making for various groups of people working with JIEDDO. I transferred complicated projects in EXCEL and ACCESS to SAS, improving the run-time and product quality. I created SAS Stored Processes to help streamline report generation, support business intelligence, and produce high quality graphics for all customers. I wrote a process to clean raw data and format the data using regular expression parsing on ingest of the data feeds. I integrated a process to parse XML files and create new databases from the results, making new sources of data available for a multitude of colleagues. I designed a database to enhance reporting and help determine an optimal solution to a resource allocation problem.&lt;/p&gt;
+
+&lt;p&gt;Image: US soldiers examine evidence at an IED training site at the National Training Center at Fort Irwin, California, US.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optimizing Team Assignments</title>
+      <link>/project/nvss/</link>
+      <pubDate>Sun, 01 Aug 2010 00:00:00 +0000</pubDate>
+      <guid>/project/nvss/</guid>
+      <description>&lt;p&gt;The teams in the Northern Virginia Senior Softball (NVSS) league are reorganized every year with the desire to make them as even as possible and promote social interactions. This project’s goals were to develop a methodology to produce team assignments for players such that the teams are equal in regards to player ability and other attributes. Multiple regression was employed to obtain offensive, defensive, and team metrics. An integer program (IP) model was developed where constraints were aligned with the goals of the NVSS league to solve the assignment problem. The IP model was linked to a team assignment tool which allows the user to select settings and parameters before running the model.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Port Operations Analysis for PNNL</title>
+      <link>/project/pnnl/</link>
+      <pubDate>Wed, 01 Jul 2009 00:00:00 +0000</pubDate>
+      <guid>/project/pnnl/</guid>
+      <description>&lt;p&gt;Using AnyLogic to build a combined Discrete Event / Agent Based model to determine the effects of introducing delays to a seaport&amp;rsquo;s operations. Build reports given the results of a sensitivity analysis or Monte Carlo run version of the model. Compiled an applet version of the model and combined with an HTML interface to supply to the customer.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transit Risk and Assessment Methodology</title>
+      <link>/project/tram/</link>
+      <pubDate>Sat, 01 Jul 2006 00:00:00 +0000</pubDate>
+      <guid>/project/tram/</guid>
+      <description>&lt;p&gt;Served as the data manager for analysis of counter-terrorism defense measures in place for several mass transit systems under the Transit Risk Assessment Module (TRAM). Assisted in recording data at meetings and on-site visits. Track changes to and finalize documents for delivery to the customer. Performed cost-benefit analysis (CBA) for several jurisdictions using the Risk Management Tool (RMT). Prepared materials for TRAM workshops and adjusted data during the workshops to provide accurate results. Aided as the CBA specialist during the TRAM workshops. Instructed on proper use of the RMT software.&lt;/p&gt;
+
+&lt;p&gt;Updated the TRAM methodology to include multi-hazards and aggregated decision tactics. Built the new methodology into EXCEL through worksheet functions and VBA.&lt;/p&gt;
+
+&lt;p&gt;Using specific projects developed by Port Authority of New York and New Jersey (PANYNJ), adjusted pieces of the risk formula and calculated a ten year lifecycle cost in order to analyze and update the priority of projects to be implemented. Developed a specialized toolkit in EXCEL to run a cost benefit analysis and select optimal points using a pareto frontier.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NASA - Probabilistic Campaign Manifest Analysis Tool</title>
+      <link>/project/pcmat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/project/pcmat/</guid>
+      <description>&lt;p&gt;Probabilistic Campaign Manifest Analysis Tool (PCMAT) was an excel based tool that would take in a manifest for a lunar campaign and run a simulation to evaluate various metrics about the campaign. I updated and expanded the capabilities of the this tool to track new metrics and increase the number of Bernoulli trials run within the course of a campaign. In addition, I improved the efficiency of the model through VBA and advanced EXCEL worksheet formulas.&lt;/p&gt;
+
+&lt;p&gt;Our team&amp;rsquo;s effort on this work was acknowledged in the &amp;ldquo;&lt;a href=&#34;http://www.nasa.gov/pdf/396093main_HSF_Cmte_FinalReport.pdf&#34;&gt;SEEKING A HUMAN SPACEFLIGHT PROGRAM WORTHY OF A GREAT NATION&lt;/a&gt;&amp;rdquo; report to Congress.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

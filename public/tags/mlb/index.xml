@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MLB | Christopher Teixeira</title>
+    <link>/tags/mlb/</link>
+      <atom:link href="/tags/mlb/index.xml" rel="self" type="application/rss+xml" />
+    <description>MLB</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Wed, 01 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>MLB</title>
+      <link>/tags/mlb/</link>
+    </image>
+    
+    <item>
+      <title>Predicting Pitch Types</title>
+      <link>/project/predicting-pitch-types/</link>
+      <pubDate>Wed, 01 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>/project/predicting-pitch-types/</guid>
+      <description>&lt;p&gt;TruMedia Networks sponsored their 2nd Baseball Analytics Hackathon to bring together some of sport&amp;rsquo;s brightest developers and analysts to see what projects and analysis they can create. Providing pitch data over the previous three years, I took the opportunity to explore the ability to predict the next pitch type. The link for this project walks through my analysis in R using a multinomial logistic regression model to predict pitch types for Jon Lester.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MLB Player Similarity</title>
+      <link>/project/mlb-player-similarity/</link>
+      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
+      <guid>/project/mlb-player-similarity/</guid>
+      <description>&lt;p&gt;Using a combination of dynamic programming and social network analysis, I compare a player&amp;rsquo;s career stats against other players to figure out who are the most similar. After determining which players are similar, I use various social network analysis techniques to be able to cluster and categorize players.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optimizing Team Assignments</title>
+      <link>/project/nvss/</link>
+      <pubDate>Sun, 01 Aug 2010 00:00:00 +0000</pubDate>
+      <guid>/project/nvss/</guid>
+      <description>&lt;p&gt;The teams in the Northern Virginia Senior Softball (NVSS) league are reorganized every year with the desire to make them as even as possible and promote social interactions. This project’s goals were to develop a methodology to produce team assignments for players such that the teams are equal in regards to player ability and other attributes. Multiple regression was employed to obtain offensive, defensive, and team metrics. An integer program (IP) model was developed where constraints were aligned with the goals of the NVSS league to solve the assignment problem. The IP model was linked to a team assignment tool which allows the user to select settings and parameters before running the model.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Statistical Analysis of Defensive Production in Major League Baseball</title>
+      <link>/project/mqp/</link>
+      <pubDate>Thu, 01 Jun 2006 00:00:00 +0000</pubDate>
+      <guid>/project/mqp/</guid>
+      <description>&lt;p&gt;While many statistical measures have been devised to measure team and player performance in professional baseball, relatively little work has been done to study and improve measures of defensive performance. This project’s goals were to model defensive contribution to team performance and develop related measures of individual player defensive production. Factor analysis was employed to extract positional factors and combine them with pitching and offensive measures into a final logistic regression model to determine effects of defense on team performance.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

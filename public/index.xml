@@ -1,0 +1,1273 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Christopher Teixeira</title>
+    <link>/</link>
+      <atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <description>Christopher Teixeira</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2019</copyright><lastBuildDate>Sat, 01 Jun 2030 13:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/icon-192.png</url>
+      <title>Christopher Teixeira</title>
+      <link>/</link>
+    </image>
+    
+    <item>
+      <title>Example Page 1</title>
+      <link>/courses/example/example1/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>/courses/example/example1/</guid>
+      <description>
+
+&lt;p&gt;In this tutorial, I&amp;rsquo;ll share my top 10 tips for getting started with Academic:&lt;/p&gt;
+
+&lt;h2 id=&#34;tip-1&#34;&gt;Tip 1&lt;/h2&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
+
+&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
+
+&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
+
+&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
+
+&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+
+&lt;h2 id=&#34;tip-2&#34;&gt;Tip 2&lt;/h2&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
+
+&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
+
+&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
+
+&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
+
+&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Example Page 2</title>
+      <link>/courses/example/example2/</link>
+      <pubDate>Sun, 05 May 2019 00:00:00 +0100</pubDate>
+      <guid>/courses/example/example2/</guid>
+      <description>
+
+&lt;p&gt;Here are some more tips for getting started with Academic:&lt;/p&gt;
+
+&lt;h2 id=&#34;tip-3&#34;&gt;Tip 3&lt;/h2&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
+
+&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
+
+&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
+
+&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
+
+&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+
+&lt;h2 id=&#34;tip-4&#34;&gt;Tip 4&lt;/h2&gt;
+
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellus ac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pulvinar tempor diam. Quisque risus orci, mollis id ante sit amet, gravida egestas nisl. Sed ac tempus magna. Proin in dui enim. Donec condimentum, sem id dapibus fringilla, tellus enim condimentum arcu, nec volutpat est felis vel metus. Vestibulum sit amet erat at nulla eleifend gravida.&lt;/p&gt;
+
+&lt;p&gt;Nullam vel molestie justo. Curabitur vitae efficitur leo. In hac habitasse platea dictumst. Sed pulvinar mauris dui, eget varius purus congue ac. Nulla euismod, lorem vel elementum dapibus, nunc justo porta mi, sed tempus est est vel tellus. Nam et enim eleifend, laoreet sem sit amet, elementum sem. Morbi ut leo congue, maximus velit ut, finibus arcu. In et libero cursus, rutrum risus non, molestie leo. Nullam congue quam et volutpat malesuada. Sed risus tortor, pulvinar et dictum nec, sodales non mi. Phasellus lacinia commodo laoreet. Nam mollis, erat in feugiat consectetur, purus eros egestas tellus, in auctor urna odio at nibh. Mauris imperdiet nisi ac magna convallis, at rhoncus ligula cursus.&lt;/p&gt;
+
+&lt;p&gt;Cras aliquam rhoncus ipsum, in hendrerit nunc mattis vitae. Duis vitae efficitur metus, ac tempus leo. Cras nec fringilla lacus. Quisque sit amet risus at ipsum pharetra commodo. Sed aliquam mauris at consequat eleifend. Praesent porta, augue sed viverra bibendum, neque ante euismod ante, in vehicula justo lorem ac eros. Suspendisse augue libero, venenatis eget tincidunt ut, malesuada at lorem. Donec vitae bibendum arcu. Aenean maximus nulla non pretium iaculis. Quisque imperdiet, nulla in pulvinar aliquet, velit quam ultrices quam, sit amet fringilla leo sem vel nunc. Mauris in lacinia lacus.&lt;/p&gt;
+
+&lt;p&gt;Suspendisse a tincidunt lacus. Curabitur at urna sagittis, dictum ante sit amet, euismod magna. Sed rutrum massa id tortor commodo, vitae elementum turpis tempus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean purus turpis, venenatis a ullamcorper nec, tincidunt et massa. Integer posuere quam rutrum arcu vehicula imperdiet. Mauris ullamcorper quam vitae purus congue, quis euismod magna eleifend. Vestibulum semper vel augue eget tincidunt. Fusce eget justo sodales, dapibus odio eu, ultrices lorem. Duis condimentum lorem id eros commodo, in facilisis mauris scelerisque. Morbi sed auctor leo. Nullam volutpat a lacus quis pharetra. Nulla congue rutrum magna a ornare.&lt;/p&gt;
+
+&lt;p&gt;Aliquam in turpis accumsan, malesuada nibh ut, hendrerit justo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Quisque sed erat nec justo posuere suscipit. Donec ut efficitur arcu, in malesuada neque. Nunc dignissim nisl massa, id vulputate nunc pretium nec. Quisque eget urna in risus suscipit ultricies. Pellentesque odio odio, tincidunt in eleifend sed, posuere a diam. Nam gravida nisl convallis semper elementum. Morbi vitae felis faucibus, vulputate orci placerat, aliquet nisi. Aliquam erat volutpat. Maecenas sagittis pulvinar purus, sed porta quam laoreet at.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Example Talk</title>
+      <link>/talk/example/</link>
+      <pubDate>Sat, 01 Jun 2030 13:00:00 +0000</pubDate>
+      <guid>/talk/example/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click on the &lt;strong&gt;Slides&lt;/strong&gt; button above to view the built-in slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Slides can be added in a few ways:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Create&lt;/strong&gt; slides using Academic&amp;rsquo;s &lt;a href=&#34;https://sourcethemes.com/academic/docs/managing-content/#create-slides&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;Slides&lt;/em&gt;&lt;/a&gt; feature and link using &lt;code&gt;slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Upload&lt;/strong&gt; an existing slide deck to &lt;code&gt;static/&lt;/code&gt; and link using &lt;code&gt;url_slides&lt;/code&gt; parameter in the front matter of the talk file&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Embed&lt;/strong&gt; your slides (e.g. Google Slides) or presentation video on this page using &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;shortcodes&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Further talk details can easily be added to this page using &lt;em&gt;Markdown&lt;/em&gt; and $\rm \LaTeX$ math code.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Categorizing Pitches</title>
+      <link>/post/20190902_predicting_pitch_types/</link>
+      <pubDate>Mon, 02 Sep 2019 00:00:00 +0000</pubDate>
+      <guid>/post/20190902_predicting_pitch_types/</guid>
+      <description>
+
+
+&lt;div id=&#34;data-discussion&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Data discussion&lt;/h1&gt;
+&lt;p&gt;My customary evening activity is listening to the NESN commentary during a Red Sox game. During one particular game, a pitcher threw a pitch they suspected was a screwball. Over the next few minutes, they discussed the the prevalence of screwballs in today’s game versus other pitches that could appear like screwballs. I took this as an opportunity to evaluate the movement on pitches and see if any in fact might be “more screwball-like”.&lt;/p&gt;
+&lt;p&gt;Using data provided by TruMedia for a hackathon, I looked into using their pitch-by-pitch data to see if this was even possible.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;pitchType&lt;/em&gt;
+* CH - Changeup
+* CU - Curveball
+* FA - Fastball
+* FT - Two Seamer
+* FF - Four Seamer
+* FC - Cutter
+* SL - Slider
+* FS - Splitter
+* SI - Sinker
+* FO - Forkball
+* KN - Knuckleball
+* KC - Knuckle Curve
+* SC - Screwball
+* GY - Gyroball
+* EP - Eephus
+* PO - Pitchout
+* IN - Intentional Ball
+* AB - Automatic Ball
+* AS - Automatic Strike
+* UN - Unknown&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;ggplot(df %&amp;gt;% group_by(pitchType) %&amp;gt;% count() %&amp;gt;% arrange(desc(n)), aes(x=reorder(pitchType,-n),y=n)) +
+  geom_bar(stat=&amp;quot;identity&amp;quot;) +
+  geom_text(aes(label = ks(n), y=n), vjust = -.5, stat=&amp;quot;identity&amp;quot;) +
+  scale_y_continuous(labels=ks) + 
+  ylab(&amp;quot;Number of Pitches&amp;quot;) +
+  xlab(&amp;quot;Pitch Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/data_overview-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;removePitchTypes &amp;lt;- c(&amp;quot;PO&amp;quot;,&amp;quot;IN&amp;quot;,&amp;quot;AB&amp;quot;,&amp;quot;AS&amp;quot;,&amp;quot;FA&amp;quot;,&amp;quot;UN&amp;quot;)
+df &amp;lt;- filter(df,!(pitchType %in% removePitchTypes))
+num.pitch.types &amp;lt;- df %&amp;gt;% select(pitchType) %&amp;gt;% distinct() %&amp;gt;% count() %&amp;gt;% pull()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Given that, we’re going to remove some pitch types. The pitch types we remove fall under two categories:
+1) “automatic” pitches like pitch outs, intentional balls
+2) uncommon pitches like “unknown” and “fastballs”&lt;/p&gt;
+&lt;div id=&#34;splitting-the-data-for-validation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Splitting the data for validation&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;set.seed(4567)
+df_split &amp;lt;- initial_split(df, prop = 0.75, strata = &amp;quot;pitchType&amp;quot;)
+
+response_train &amp;lt;- ggplot(training(df_split),aes(x=pitchType, group=1)) +
+  geom_bar(aes(y =..prop..), stat=&amp;quot;count&amp;quot;, width=.75) +
+  geom_text(aes(label = scales::percent(..prop..), y=..prop..), vjust = -.5, stat=&amp;quot;count&amp;quot;) +
+  scale_y_continuous(labels=scales::percent) +
+  ylab(&amp;quot;Relative frequencies&amp;quot;) +
+  xlab(&amp;quot;Pitch Type&amp;quot;)
+response_test &amp;lt;- ggplot(testing(df_split),aes(x=pitchType, group=1)) +
+  geom_bar(aes(y =..prop.., group=1), stat=&amp;quot;count&amp;quot;, width=.75) +
+  geom_text(aes(label = scales::percent(..prop..), y=..prop..), stat= &amp;quot;count&amp;quot;, vjust = -.5) +
+  scale_y_continuous(labels=scales::percent) +
+  ylab(&amp;quot;Relative frequencies&amp;quot;) +
+  xlab(&amp;quot;Pitch Type&amp;quot;)
+gridExtra::grid.arrange(response_train, response_test)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/data_split-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;recipe-for-processing-data&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Recipe for processing data&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Upsample minority class
+majority.class.amount &amp;lt;- df_split %&amp;gt;%
+  training() %&amp;gt;%
+  group_by(pitchType) %&amp;gt;%
+  summarize(n=n()) %&amp;gt;%
+  arrange(desc(n)) %&amp;gt;%
+  slice(1) %&amp;gt;%
+  pull()
+
+minority.class.amount &amp;lt;- 1000
+
+df_recipe &amp;lt;- df_split %&amp;gt;%
+  training() %&amp;gt;%
+  recipe(pitchType ~ . - pitcherId) %&amp;gt;%
+  # step_num2factor(pitcherId) %&amp;gt;%
+  step_string2factor(pitcherHand, pitchType) %&amp;gt;%
+  update_role(pitcherId, new_role = &amp;quot;id variable&amp;quot;) %&amp;gt;%
+  step_upsample(pitchType, ratio=minority.class.amount/majority.class.amount) %&amp;gt;%
+  step_center(all_predictors(), -all_outcomes(), -all_nominal()) %&amp;gt;%
+  step_scale(all_predictors(), -all_outcomes(), -all_nominal()) %&amp;gt;%
+  # step_corr(all_numeric(), - all_outcomes(), threshold = 0.5) %&amp;gt;%
+  step_dummy(all_nominal(), -all_outcomes()) %&amp;gt;%
+  step_naomit(px) %&amp;gt;%
+  prep(retain=TRUE)
+
+df_recipe&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Data Recipe&lt;/p&gt;
+&lt;p&gt;Inputs:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    role #variables&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;id variable 1
+outcome 1
+predictor 16&lt;/p&gt;
+&lt;p&gt;Training data contained 536894 data points and no missing data.&lt;/p&gt;
+&lt;p&gt;Operations:&lt;/p&gt;
+&lt;p&gt;Factor variables from pitcherHand, pitchType [trained]
+Up-sampling based on pitchType [trained]
+Centering for releaseVelocity, spinRate, spinDir, px, … [trained]
+Scaling for releaseVelocity, spinRate, spinDir, px, … [trained]
+Dummy variables from pitcherHand [trained]
+Removing rows with NA values in px&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_training &amp;lt;- juice(df_recipe)
+df_testing &amp;lt;- df_recipe %&amp;gt;%
+  bake(testing(df_split))&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;a-first-model&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;A first model&lt;/h1&gt;
+&lt;p&gt;Our goal is to build a model that examines pitch types and whether they are categorized by pitch movement. The inspiration for this was built upon a comment that “screwballs” aren’t thrown anymore. While pitches can be categorized by the combination of how the pitcher holds the baseball with the arm movements, the behavior of the ball itself can vary slightly and begs the question, “do some two seam fastballs act like screwballs?” We’ll generalize this and understand if there are certain pitches that behave like others.&lt;/p&gt;
+&lt;div id=&#34;null-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Null model&lt;/h2&gt;
+&lt;p&gt;In order to appreciate the power of our model, let’s first create a null model to understand a baseline predictability. Parsnip has a function for figuring this out, although some basic data manipulation can come to the same conclusion. The null model essentially just says “always guess the majority class” (for classification models).&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Using data manipulation and dplyr
+majority.class.accuracy &amp;lt;- df %&amp;gt;% group_by(pitchType) %&amp;gt;% summarize(n=n()) %&amp;gt;% mutate(pct=n/sum(n)) %&amp;gt;% arrange(desc(n)) %&amp;gt;% slice(1) %&amp;gt;% select(pct) %&amp;gt;% pull()
+
+# Using parsnip::nullmodel
+null.model &amp;lt;- nullmodel(y=factor(df$pitchType))
+null.model.accuracy &amp;lt;- null.model$pct %&amp;gt;% as_tibble %&amp;gt;% filter(y==null.model$value) %&amp;gt;% select(n) %&amp;gt;% pull()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Randomly guessing the majority class would give us an accuracy of 34.8%.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;improved-naive-model&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Improved Naive model&lt;/h2&gt;
+&lt;p&gt;We can do slightly better than that if we build a model based on the pitcher. This model will weight for what a pitcher normally throws.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Naive model
+df_rf_naive &amp;lt;- rand_forest(trees = 100, mode = &amp;quot;classification&amp;quot;) %&amp;gt;%
+  set_engine(&amp;quot;randomForest&amp;quot;, importance=T, localImp = T) %&amp;gt;%
+  fit(pitchType ~ pitcherId, data = df_training)
+
+# Baseline results
+baseline.results &amp;lt;- predict(df_rf_naive, df_testing, type = &amp;quot;prob&amp;quot;) %&amp;gt;%
+  bind_cols(predict(df_rf_naive, df_testing)) %&amp;gt;%
+  bind_cols(select(df_testing, pitchType)) %&amp;gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&amp;quot;quiet&amp;quot;=T))
+
+baseline.results %&amp;gt;% knitr::kable(digits=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;.metric&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;.estimator&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;.estimate&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;accuracy&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4629&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;kap&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.2902&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;mn_log_loss&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.1878&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;roc_auc&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;hand_till&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.7112&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;baseline.accuracy &amp;lt;- baseline.results %&amp;gt;% filter(.metric==&amp;quot;accuracy&amp;quot;) %&amp;gt;% select(.estimate) %&amp;gt;% pull&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;Our true baseline is now 46.3% that we will use in measuring performance of our model going forward.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;building-a-full-model&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Building a full model&lt;/h1&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Full model
+df_rf &amp;lt;- rand_forest(trees = 100, mode = &amp;quot;classification&amp;quot;) %&amp;gt;%
+  set_engine(&amp;quot;randomForest&amp;quot;, importance=T, localImp = T) %&amp;gt;%
+  fit(pitchType ~ . - pitcherId, data = df_training)
+
+df_rf&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## parsnip model object
+## 
+## 
+## Call:
+##  randomForest(x = as.data.frame(x), y = y, ntree = ~100, importance = ~T,      localImp = ~T) 
+##                Type of random forest: classification
+##                      Number of trees: 100
+## No. of variables tried at each split: 4
+## 
+##         OOB estimate of  error rate: 8.22%
+## Confusion matrix:
+##       CH    CU   EP    FC     FF  FO   FS    FT   KC   KN   SC    SI    SL
+## CH 52303    17    0    49    453   2  193   403    1   24    5   633   438
+## CU    28 40711    7    12      5   0    2     0  348   19    0     0  2012
+## EP     0     0 1000     0      0   0    0     0    0    0    0     0     0
+## FC    89    15    0 24372   1535   0    2    14    0    0    0    12  2727
+## FF   477     2    0   929 179915   0   14  3922    0    6    0  1547   329
+## FO    38     1    0     0     12 928    0    12    0    0    0     9     0
+## FS  1962     4    0    14     50   1 5660    27    0    4    0    67   116
+## FT   745     4    0     4   6366   2    6 55590    0    0    0  3288    19
+## KC    14  1594    0     3      0   0    2     0 7134    1    0     1   672
+## KN    42    61    0     0      0   0    2     0    2 2243    0     0    21
+## SC     0     0    0     0      0   0    0     0    0    0 1000     0     0
+## SI   788     0    0     7   3631   1    9  4747    0    0    0 45316    24
+## SL   388  1350    0  1293    377   0   35    11  188    5    0    23 78757
+##    class.error
+## CH  0.04068157
+## CU  0.05639255
+## EP  0.00000000
+## FC  0.15274977
+## FF  0.03861260
+## FO  0.07200000
+## FS  0.28399747
+## FT  0.15803344
+## KC  0.24275555
+## KN  0.05398566
+## SC  0.00000000
+## SI  0.16886452
+## SL  0.04452425&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;full.model.results &amp;lt;- predict(df_rf, df_testing, type = &amp;quot;prob&amp;quot;) %&amp;gt;%
+  bind_cols(predict(df_rf, df_testing)) %&amp;gt;%
+  bind_cols(select(df_testing, pitchType)) %&amp;gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&amp;quot;quiet&amp;quot;=T))
+
+full.model.results %&amp;gt;% knitr::kable(digits=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;.metric&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;.estimator&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;.estimate&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;accuracy&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.7811&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;kap&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.7266&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;mn_log_loss&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;multiclass&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5613&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;roc_auc&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;hand_till&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.9688&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;full.model.accuracy &amp;lt;- full.model.results %&amp;gt;% filter(.metric==&amp;quot;accuracy&amp;quot;) %&amp;gt;% select(.estimate) %&amp;gt;% pull&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;A simple first attempt at building a model results in an accuracy of 78.1%, or 1.7 times better than our baseline model.&lt;/p&gt;
+&lt;div id=&#34;model-interpretation&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Model interpretation&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results &amp;lt;- df_rf %&amp;gt;%
+  predict(df_testing) %&amp;gt;%
+  bind_cols(df_testing) %&amp;gt;%
+  select(pitcherId,actual=pitchType, predicted=.pred_class)
+
+# Permutation based importance
+cbind(rownames(df_rf$fit$importance), df_rf$fit$importance) %&amp;gt;%
+  as_tibble() %&amp;gt;%
+  select(predictor=V1, MeanDecreaseAccuracy)   %&amp;gt;%
+  mutate(MeanDecreaseAccuracy=as.numeric(MeanDecreaseAccuracy)) %&amp;gt;%
+  arrange(desc(MeanDecreaseAccuracy)) %&amp;gt;%
+  head()&lt;/code&gt;&lt;/pre&gt;
+&lt;pre&gt;&lt;code&gt;## # A tibble: 6 x 2
+##   predictor       MeanDecreaseAccuracy
+##   &amp;lt;chr&amp;gt;                          &amp;lt;dbl&amp;gt;
+## 1 spinDir                        0.288
+## 2 az                             0.258
+## 3 ax                             0.253
+## 4 vy0                            0.248
+## 5 releaseVelocity                0.244
+## 6 x0                             0.190&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_probs &amp;lt;- df_rf %&amp;gt;%
+  predict(df_testing, type = &amp;quot;prob&amp;quot;) %&amp;gt;%
+  bind_cols(df_testing)
+
+df_probs %&amp;gt;%
+  roc_curve(pitchType, .pred_CH:.pred_SL, options=c(&amp;quot;quiet&amp;quot;=TRUE)) %&amp;gt;%
+  autoplot()&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/results_roc-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;conf_mat(results, truth = actual, estimate = predicted)[[1]] %&amp;gt;%
+  prop.table(2) %&amp;gt;%
+  round(2) %&amp;gt;%
+  as_tibble() %&amp;gt;%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(n, accuracy=1), alpha = n), size = 6) +
+  theme(legend.position = &amp;quot;none&amp;quot;) +
+  labs(
+    title = &amp;quot;Confusion matrix&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/results_confusionmatrix-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id=&#34;analysis&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;Analysis&lt;/h1&gt;
+&lt;div id=&#34;which-pitch-is-often-misclassified&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Which pitch is often misclassified?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results %&amp;gt;%
+  mutate(correct=if_else(actual==predicted,1,0)) %&amp;gt;%
+  group_by(actual) %&amp;gt;%
+  summarize(n = n(),
+            wrong = n - sum(correct)) %&amp;gt;%
+  mutate(pct = wrong / n) %&amp;gt;%
+  arrange(desc(pct)) %&amp;gt;%
+  left_join(pitchtypes,by=c(&amp;quot;actual&amp;quot;=&amp;quot;pitchType&amp;quot;)) %&amp;gt;%
+  mutate(Percent=percent(pct)) %&amp;gt;%
+  select(`Pitch Type`=pitch, `Number of Pitches`=n, `Incorrect Category`=wrong, Percent) %&amp;gt;%
+  knitr::kable()&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Pitch Type&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Number of Pitches&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Incorrect Category&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Percent&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Forkball&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;146&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;143&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;97.9%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Splitter&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2665&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1993&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;74.8%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Knuckle&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3109&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2009&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;64.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Sinker&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;18339&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;8227&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;44.9%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Two&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21979&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9148&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;41.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Cutter&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;9708&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;4031&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;41.5%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Screwball&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;25&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;10&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;40.0%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Eephus&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;77&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;21&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;27.3%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Curveball&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;14577&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;2070&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;14.2%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Knuckleball&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;758&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;107&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;14.1%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Slider&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;27619&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;3213&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;11.6%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Changeup&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;17878&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;1979&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;11.1%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Four&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;62083&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;6226&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;10.0%&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;which-pitcher-often-has-his-pitches-misclassified&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Which pitcher often has his pitches misclassified?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;results %&amp;gt;%
+  mutate(correct=if_else(actual==predicted,1,0)) %&amp;gt;%
+  group_by(pitcherId) %&amp;gt;%
+  summarize(n = n(),
+            wrong = n - sum(correct)) %&amp;gt;%
+  mutate(pct = wrong / n) %&amp;gt;%
+  arrange(desc(pct)) %&amp;gt;%
+  left_join(pitchers) %&amp;gt;%
+  filter(n&amp;gt;100) %&amp;gt;%
+  select(Pitcher=pitcher, `Number of Pitches`=n, `Incorrect Category`=wrong, Percent=pct) %&amp;gt;%
+  slice(1:20) %&amp;gt;%
+  knitr::kable(digits=4)&lt;/code&gt;&lt;/pre&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr class=&#34;header&#34;&gt;
+&lt;th align=&#34;left&#34;&gt;Pitcher&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Number of Pitches&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Incorrect Category&lt;/th&gt;
+&lt;th align=&#34;right&#34;&gt;Percent&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Jose Veras&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;256&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;169&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.6602&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Ross Wolf&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;175&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;111&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.6343&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Darin Downs&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;138&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;83&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.6014&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Corey Kluber&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;539&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;320&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5937&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Mitchell Boggs&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;123&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;73&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5935&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Brandon Cumpton&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;122&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;72&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5902&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Michael Kirkman&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;108&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;63&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5833&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Lucas Harrell&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;710&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;398&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5606&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Brett Cecil&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;230&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;127&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5522&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Tanner Roark&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;176&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;96&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5455&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Luis Ayala&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;145&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;78&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5379&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Derek Holland&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;837&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;436&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5209&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Tyler Cloyd&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;262&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;135&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5153&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Bryan Morris&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;238&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;121&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5084&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;David Hernandez&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;256&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;130&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.5078&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Travis Blackley&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;211&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;105&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4976&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;P.J. Walters&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;155&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;77&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4968&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Roy Halladay&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;285&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;141&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4947&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;odd&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Brandon League&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;250&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;121&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4840&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr class=&#34;even&#34;&gt;
+&lt;td align=&#34;left&#34;&gt;Scott Kazmir&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;674&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;323&lt;/td&gt;
+&lt;td align=&#34;right&#34;&gt;0.4792&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;/div&gt;
+&lt;div id=&#34;does-the-ability-of-categorizing-pitch-types-changes-over-time&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Does the ability of categorizing pitch types changes over time?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;df_additional &amp;lt;- df_recipe %&amp;gt;%
+  bake(df.future)
+
+ggplot(df_additional %&amp;gt;% group_by(pitchType) %&amp;gt;% count() %&amp;gt;% arrange(desc(n)), aes(x=reorder(pitchType,-n),y=n)) +
+  geom_bar(stat=&amp;quot;identity&amp;quot;) +
+  geom_text(aes(label = ks(n), y=n), vjust = -.5, stat=&amp;quot;identity&amp;quot;) +
+  scale_y_continuous(labels=ks) + 
+  ylab(&amp;quot;Number of Pitches&amp;quot;) +
+  xlab(&amp;quot;Pitch Type&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/analysis_3-1.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;future.performance &amp;lt;- predict(df_rf, df_additional, type = &amp;quot;prob&amp;quot;) %&amp;gt;%
+  bind_cols(predict(df_rf, df_additional)) %&amp;gt;%
+  bind_cols(select(df_additional, pitchType)) %&amp;gt;%
+  metrics(pitchType, .pred_CH:.pred_SL, estimate = .pred_class, options=c(&amp;quot;quiet&amp;quot;=T)) %&amp;gt;% 
+  knitr::kable(digits=4)
+
+future.results &amp;lt;- df_rf %&amp;gt;%
+  predict(df_additional) %&amp;gt;%
+  bind_cols(df_additional) %&amp;gt;%
+  select(pitcherId,actual=pitchType, predicted=.pred_class)
+
+conf_mat(future.results, truth = actual, estimate = predicted)[[1]] %&amp;gt;%
+  prop.table(2) %&amp;gt;%
+  round(2) %&amp;gt;%
+  as_tibble() %&amp;gt;%
+  ggplot(aes(Prediction, Truth, alpha = n)) +
+  geom_tile(show.legend = FALSE) +
+  geom_text(aes(label = scales::percent(n, accuracy=1), alpha = n), size = 6) +
+  theme(legend.position = &amp;quot;none&amp;quot;) +
+  labs(
+    title = &amp;quot;Confusion matrix&amp;quot;
+  )&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;/post/20190902_predicting_pitch_types_files/figure-html/analysis_3-2.png&#34; width=&#34;672&#34; /&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>An example preprint / working paper</title>
+      <link>/publication/preprint/</link>
+      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
+      <guid>/publication/preprint/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Slides</title>
+      <link>/slides/example/</link>
+      <pubDate>Tue, 05 Feb 2019 00:00:00 +0000</pubDate>
+      <guid>/slides/example/</guid>
+      <description>
+
+&lt;h1 id=&#34;welcome-to-slides&#34;&gt;Welcome to Slides&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/&#34; target=&#34;_blank&#34;&gt;Academic&lt;/a&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Efficiently write slides in Markdown&lt;/li&gt;
+&lt;li&gt;3-in-1: Create, Present, and Publish your slides&lt;/li&gt;
+&lt;li&gt;Supports speaker notes&lt;/li&gt;
+&lt;li&gt;Mobile friendly slides&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;controls&#34;&gt;Controls&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Next: &lt;code&gt;Right Arrow&lt;/code&gt; or &lt;code&gt;Space&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Previous: &lt;code&gt;Left Arrow&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Start: &lt;code&gt;Home&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Finish: &lt;code&gt;End&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Overview: &lt;code&gt;Esc&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Speaker notes: &lt;code&gt;S&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Fullscreen: &lt;code&gt;F&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Zoom: &lt;code&gt;Alt + Click&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hakimel/reveal.js#pdf-export&#34; target=&#34;_blank&#34;&gt;PDF Export&lt;/a&gt;: &lt;code&gt;E&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;code-highlighting&#34;&gt;Code Highlighting&lt;/h2&gt;
+
+&lt;p&gt;Inline code: &lt;code&gt;variable&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Code block:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;porridge = &amp;quot;blueberry&amp;quot;
+if porridge == &amp;quot;blueberry&amp;quot;:
+    print(&amp;quot;Eating...&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;math&#34;&gt;Math&lt;/h2&gt;
+
+&lt;p&gt;In-line math: $x + y = z$&lt;/p&gt;
+
+&lt;p&gt;Block math:&lt;/p&gt;
+
+&lt;p&gt;$$
+f\left( x \right) = \;\frac{{2\left( {x + 4} \right)\left( {x - 4} \right)}}{{\left( {x + 4} \right)\left( {x + 1} \right)}}
+$$&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;fragments&#34;&gt;Fragments&lt;/h2&gt;
+
+&lt;p&gt;Make content appear incrementally&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{{% fragment %}} One {{% /fragment %}}
+{{% fragment %}} **Two** {{% /fragment %}}
+{{% fragment %}} Three {{% /fragment %}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press &lt;code&gt;Space&lt;/code&gt; to play!&lt;/p&gt;
+
+&lt;p&gt;&lt;span class=&#34;fragment &#34; &gt;
+   One
+&lt;/span&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+   &lt;strong&gt;Two&lt;/strong&gt;
+&lt;/span&gt;
+&lt;span class=&#34;fragment &#34; &gt;
+   Three
+&lt;/span&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;A fragment can accept two optional parameters:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;class&lt;/code&gt;: use a custom style (requires definition in custom CSS)&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;weight&lt;/code&gt;: sets the order in which a fragment appears&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;speaker-notes&#34;&gt;Speaker Notes&lt;/h2&gt;
+
+&lt;p&gt;Add speaker notes to your presentation&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{% speaker_note %}}
+- Only the speaker can read these notes
+- Press `S` key to view
+{{% /speaker_note %}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Press the &lt;code&gt;S&lt;/code&gt; key to view the speaker notes!&lt;/p&gt;
+
+&lt;aside class=&#34;notes&#34;&gt;
+  &lt;ul&gt;
+&lt;li&gt;Only the speaker can read these notes&lt;/li&gt;
+&lt;li&gt;Press &lt;code&gt;S&lt;/code&gt; key to view&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/aside&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;themes&#34;&gt;Themes&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;black: Black background, white text, blue links (default)&lt;/li&gt;
+&lt;li&gt;white: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;league: Gray background, white text, blue links&lt;/li&gt;
+&lt;li&gt;beige: Beige background, dark text, brown links&lt;/li&gt;
+&lt;li&gt;sky: Blue background, thin dark text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;night: Black background, thick white text, orange links&lt;/li&gt;
+&lt;li&gt;serif: Cappuccino background, gray text, brown links&lt;/li&gt;
+&lt;li&gt;simple: White background, black text, blue links&lt;/li&gt;
+&lt;li&gt;solarized: Cream-colored background, dark green text, blue links&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+
+&lt;section data-noprocess data-shortcode-slide
+  
+      
+      data-background-image=&#34;/img/boards.jpg&#34;
+  &gt;
+
+
+&lt;h2 id=&#34;custom-slide&#34;&gt;Custom Slide&lt;/h2&gt;
+
+&lt;p&gt;Customize the slide style and background&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-markdown&#34;&gt;{{&amp;lt; slide background-image=&amp;quot;/img/boards.jpg&amp;quot; &amp;gt;}}
+{{&amp;lt; slide background-color=&amp;quot;#0000FF&amp;quot; &amp;gt;}}
+{{&amp;lt; slide class=&amp;quot;my-style&amp;quot; &amp;gt;}}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&#34;custom-css-example&#34;&gt;Custom CSS Example&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s make headers navy colored.&lt;/p&gt;
+
+&lt;p&gt;Create &lt;code&gt;assets/css/reveal_custom.css&lt;/code&gt; with:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-css&#34;&gt;.reveal section h1,
+.reveal section h2,
+.reveal section h3 {
+  color: navy;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&#34;questions&#34;&gt;Questions?&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://discourse.gohugo.io&#34; target=&#34;_blank&#34;&gt;Ask&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://sourcethemes.com/academic/docs/&#34; target=&#34;_blank&#34;&gt;Documentation&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>State Engagement to Address Opioid Overprescribing and Misuse</title>
+      <link>/project/state-engagement-to-address-opioid-overprescribing-and-misuse/</link>
+      <pubDate>Tue, 11 Sep 2018 00:00:00 +0000</pubDate>
+      <guid>/project/state-engagement-to-address-opioid-overprescribing-and-misuse/</guid>
+      <description>&lt;p&gt;To be filled in later.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Predicting Pitch Types</title>
+      <link>/project/predicting-pitch-types/</link>
+      <pubDate>Wed, 01 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>/project/predicting-pitch-types/</guid>
+      <description>&lt;p&gt;TruMedia Networks sponsored their 2nd Baseball Analytics Hackathon to bring together some of sport&amp;rsquo;s brightest developers and analysts to see what projects and analysis they can create. Providing pitch data over the previous three years, I took the opportunity to explore the ability to predict the next pitch type. The link for this project walks through my analysis in R using a multinomial logistic regression model to predict pitch types for Jon Lester.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Predictive Analytics in Child Welfare</title>
+      <link>/project/predictive-analytics-child-welfare/</link>
+      <pubDate>Mon, 01 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>/project/predictive-analytics-child-welfare/</guid>
+      <description>&lt;p&gt;Lead a small team that interviewed several child welfare agencies to understand their progress in utilizing predictive analytics. This environmental scan resulted in two publicly released documents hosted on the Department of Health and Human Services Assistant Secretary for Planning and Evaluation website.&lt;/p&gt;
+
+&lt;p&gt;Separately, I led a small team that brought together six government agencies to analyze data around children in foster care to understand how their experiences impact their ability to lead health and independent lives. This involved working directly with a state to obtain and analyze their data using predictive analytics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Department of Energy Cost and Schedule Tool</title>
+      <link>/project/doe-cost-and-schedule-tool/</link>
+      <pubDate>Wed, 27 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/project/doe-cost-and-schedule-tool/</guid>
+      <description>&lt;p&gt;Developed a discrete simulation model capable of performing lifecycle cost and schedule analysis. This model supports executives that make decisions on alternative strategies which are expected to cost on the order of tens of billions of dollars. The model, built entirely in JavaScript using SIM.JS, allows users to configure the schedule and efficiency of each alternative. After the model completes, results are displayed using a combination of D3 and TimelineJS libraries.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Veteran Benefits Administration Command and Control Model</title>
+      <link>/project/vba-command-and-control-model/</link>
+      <pubDate>Fri, 01 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/project/vba-command-and-control-model/</guid>
+      <description>&lt;p&gt;Coordinate efforts and approaches between teams to optimize approaches. Advise on the use of data for inputs into a discrete event simulation and the model out visualization.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Children at Risk Research</title>
+      <link>/project/children-at-risk-research/</link>
+      <pubDate>Tue, 01 Dec 2015 00:00:00 +0000</pubDate>
+      <guid>/project/children-at-risk-research/</guid>
+      <description>&lt;p&gt;The Children at Risk research project looks at which information is important at determining which children under the age of ten are at higher risk for fatality due to abuse and neglect. Leading a small team, we&amp;rsquo;ve collected data from multiple parts of a local Health and Human Services Agency to bring together and understand some of the data quality issues that might exist in other HHS agencies. We use R (specifically the CARET library) to identify which factors are the most important in determining children who are at higher risk due to fatality. Using this information, we hope to design a data visualization tool that will help caseworkers identify those children at higher risk of fatality due to abuse and neglect.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Package of the Month: dygraphs</title>
+      <link>/post/20151008_potm_dygraphs/</link>
+      <pubDate>Thu, 08 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/post/20151008_potm_dygraphs/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/dygraphs/dygraph.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs/dygraph-combined.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs/shapes.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment/moment.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment-timezone/moment-timezone-with-data.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/moment-fquarter/moment-fquarter.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/dygraphs-binding/dygraphs.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;p&gt;This post will give you some code snippets for using the dygraphs javascript package through R. This package is great for visualizing and interacting with time series data.&lt;/p&gt;
+&lt;p&gt;First, let’s get some data and load the package. Being a big Red Sox fan, let’s grab David Ortiz’s home run totals for each season in his career out of the Lahman package. In order to use the dygraphs package, we need our data to be an XTS object. We’ll order the home run totals by year and then create the xts object to show yearly totals.&lt;/p&gt;
+&lt;p&gt;At last, we can draw out a baseline graph to start out with.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;suppressPackageStartupMessages(suppressWarnings(library(xts)))
+suppressPackageStartupMessages(suppressWarnings(library(Lahman)))
+suppressPackageStartupMessages(suppressWarnings(library(dygraphs)))
+suppressPackageStartupMessages(suppressWarnings(library(dplyr)))
+suppressPackageStartupMessages(suppressWarnings(library(lubridate)))
+
+# Get David Ortiz&amp;#39;s ID
+data(&amp;quot;Master&amp;quot;)
+david.ortiz &amp;lt;- Master %&amp;gt;% filter(nameFirst==&amp;quot;David&amp;quot;,nameLast==&amp;quot;Ortiz&amp;quot;) %&amp;gt;% select(playerID) %&amp;gt;% as.character
+
+# Get his hitting data
+do &amp;lt;- Batting %&amp;gt;%
+  filter(playerID==david.ortiz) %&amp;gt;%
+  arrange(yearID) 
+
+do.xts &amp;lt;- xts(x=do$HR,order.by=ymd(paste(do$yearID,&amp;quot;11&amp;quot;,&amp;quot;01&amp;quot;,sep=&amp;quot;-&amp;quot;)))
+
+# Create the plot
+dygraph(do.xts)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;labels&#34;:[&#34;year&#34;,&#34;V1&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60}}},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]]},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Well that was pretty easy. It automatically puts the interactive capabilities. Let’s start to clean it up a bit though by adjusting the series label and removing the vertical lines.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Add in a time selector
+dygraph(do.xts) %&amp;gt;% dyRangeSelector()&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-2&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-2&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;labels&#34;:[&#34;year&#34;,&#34;V1&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60}},&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]]},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Adjust the label
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) &lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-3&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-3&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60}},&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}}},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]]},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Remove verticle lines
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-4&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-4&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]]},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Now let’s fill in the area under the line, add markers to each point, and label the Y axis.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Fill in the graph
+dygraph(do.xts) %&amp;gt;% dyRangeSelector() %&amp;gt;% dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-5&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-5&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:false,&#34;pointSize&#34;:1,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Add markers
+dygraph(do.xts) %&amp;gt;% dyRangeSelector() %&amp;gt;% dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-6&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-6&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Add in Y axis label
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-7&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-7&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Let’s start to explain some of the events in David’s career. We can add a vertical line for the date he signed with the Red Sox and being the biased fan, let’s zoom in on years he played with the Red Sox. Finally, let’s mark each point for years he participated in the MLB All Star game.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Add in event for traded
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&amp;gt;%
+  dyEvent(x = &amp;quot;2003-01-22&amp;quot;, &amp;quot;Signed with the Red Sox&amp;quot;, labelLoc = &amp;quot;top&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-8&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-8&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[{&#34;pos&#34;:&#34;2003-01-22T00:00:00.000Z&#34;,&#34;label&#34;:&#34;Signed with the Red Sox&#34;,&#34;labelLoc&#34;:&#34;top&#34;,&#34;color&#34;:&#34;black&#34;,&#34;strokePattern&#34;:[7,3],&#34;axis&#34;:&#34;x&#34;}],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;# Preselect only years he played for the redsox
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector(dateWindow = c(&amp;quot;2003-01-23&amp;quot;, &amp;quot;2014-11-01&amp;quot;)) %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&amp;gt;%
+  dyEvent(x = &amp;quot;2003-01-22&amp;quot;, &amp;quot;Signed with the Red Sox&amp;quot;, labelLoc = &amp;quot;top&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-9&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-9&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;dateWindow&#34;:[&#34;2003-01-23T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;],&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[{&#34;pos&#34;:&#34;2003-01-22T00:00:00.000Z&#34;,&#34;label&#34;:&#34;Signed with the Red Sox&#34;,&#34;labelLoc&#34;:&#34;top&#34;,&#34;color&#34;:&#34;black&#34;,&#34;strokePattern&#34;:[7,3],&#34;axis&#34;:&#34;x&#34;}],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#A nnotate on all star game appearances
+dygraph(do.xts) %&amp;gt;% 
+  dyRangeSelector(dateWindow = c(&amp;quot;2003-01-23&amp;quot;, &amp;quot;2014-11-01&amp;quot;)) %&amp;gt;% 
+  dySeries(&amp;quot;V1&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&amp;gt;%
+  dyAnnotation(&amp;quot;2004-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2005-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2006-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2007-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2008-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2010-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2011-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2012-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyAnnotation(&amp;quot;2013-11-01&amp;quot;, text=&amp;quot;AS&amp;quot;, tooltip=&amp;quot;All Star Game Appearance&amp;quot;) %&amp;gt;%
+  dyEvent(x = &amp;quot;2003-01-22&amp;quot;, &amp;quot;Signed with the Red Sox&amp;quot;, labelLoc = &amp;quot;top&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-10&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-10&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;],&#34;legend&#34;:&#34;auto&#34;,&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;dateWindow&#34;:[&#34;2003-01-23T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;],&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[{&#34;x&#34;:&#34;2004-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2005-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2006-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2007-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2008-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2010-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2011-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2012-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;},{&#34;x&#34;:&#34;2013-11-01T00:00:00.000Z&#34;,&#34;shortText&#34;:&#34;AS&#34;,&#34;text&#34;:&#34;All Star Game Appearance&#34;,&#34;attachAtBottom&#34;:false,&#34;series&#34;:&#34;David Ortiz&#34;}],&#34;shadings&#34;:[],&#34;events&#34;:[{&#34;pos&#34;:&#34;2003-01-22T00:00:00.000Z&#34;,&#34;label&#34;:&#34;Signed with the Red Sox&#34;,&#34;labelLoc&#34;:&#34;top&#34;,&#34;color&#34;:&#34;black&#34;,&#34;strokePattern&#34;:[7,3],&#34;axis&#34;:&#34;x&#34;}],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;Finally, let’s add in a second player, Albert Pujols.&lt;/p&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;#Let&amp;#39;s add in another player
+albert.pujols &amp;lt;- Master %&amp;gt;% filter(nameFirst==&amp;quot;Albert&amp;quot;,nameLast==&amp;quot;Pujols&amp;quot;) %&amp;gt;% select(playerID) %&amp;gt;% as.character
+ap &amp;lt;- Batting %&amp;gt;%
+  filter(playerID==albert.pujols) %&amp;gt;%
+  arrange(yearID) 
+ap.xts &amp;lt;- xts(x=ap$HR,order.by=ymd(paste(ap$yearID,&amp;quot;11&amp;quot;,&amp;quot;01&amp;quot;,sep=&amp;quot;-&amp;quot;)))
+
+dygraph(cbind(do.xts,ap.xts)) %&amp;gt;% 
+  dyRangeSelector() %&amp;gt;% 
+  dySeries(&amp;quot;do.xts&amp;quot;, label = &amp;quot;David Ortiz&amp;quot;) %&amp;gt;%
+  dySeries(&amp;quot;ap.xts&amp;quot;, label = &amp;quot;Albert Pujols&amp;quot;) %&amp;gt;%
+  dyAxis(&amp;quot;x&amp;quot;, drawGrid = FALSE) %&amp;gt;%
+  dyAxis(&amp;quot;y&amp;quot;, label=&amp;quot;Homeruns&amp;quot;) %&amp;gt;%
+  dyOptions(fillGraph = TRUE, fillAlpha = 0.4,drawPoints = TRUE, pointSize = 2) %&amp;gt;%
+  dyLegend(labelsSeparateLines = T)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-11&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;dygraphs html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-11&#34;&gt;{&#34;x&#34;:{&#34;attrs&#34;:{&#34;axes&#34;:{&#34;x&#34;:{&#34;pixelsPerLabel&#34;:60,&#34;drawGrid&#34;:false,&#34;drawAxis&#34;:true},&#34;y&#34;:{&#34;drawAxis&#34;:true}},&#34;series&#34;:{&#34;David Ortiz&#34;:{&#34;axis&#34;:&#34;y&#34;},&#34;Albert Pujols&#34;:{&#34;axis&#34;:&#34;y&#34;}},&#34;labels&#34;:[&#34;year&#34;,&#34;David Ortiz&#34;,&#34;Albert Pujols&#34;],&#34;retainDateWindow&#34;:false,&#34;showRangeSelector&#34;:true,&#34;rangeSelectorHeight&#34;:40,&#34;rangeSelectorPlotFillColor&#34;:&#34; #A7B1C4&#34;,&#34;rangeSelectorPlotStrokeColor&#34;:&#34;#808FAB&#34;,&#34;interactionModel&#34;:&#34;Dygraph.Interaction.defaultModel&#34;,&#34;ylabel&#34;:&#34;Homeruns&#34;,&#34;stackedGraph&#34;:false,&#34;fillGraph&#34;:true,&#34;fillAlpha&#34;:0.4,&#34;stepPlot&#34;:false,&#34;drawPoints&#34;:true,&#34;pointSize&#34;:2,&#34;drawGapEdgePoints&#34;:false,&#34;connectSeparatedPoints&#34;:false,&#34;strokeWidth&#34;:1,&#34;strokeBorderColor&#34;:&#34;white&#34;,&#34;colorValue&#34;:0.5,&#34;colorSaturation&#34;:1,&#34;includeZero&#34;:false,&#34;drawAxesAtZero&#34;:false,&#34;logscale&#34;:false,&#34;axisTickSize&#34;:3,&#34;axisLineColor&#34;:&#34;black&#34;,&#34;axisLineWidth&#34;:0.3,&#34;axisLabelColor&#34;:&#34;black&#34;,&#34;axisLabelFontSize&#34;:14,&#34;axisLabelWidth&#34;:60,&#34;drawGrid&#34;:true,&#34;gridLineWidth&#34;:0.3,&#34;rightGap&#34;:5,&#34;digitsAfterDecimal&#34;:2,&#34;labelsKMB&#34;:false,&#34;labelsKMG2&#34;:false,&#34;labelsUTC&#34;:false,&#34;maxNumberWidth&#34;:6,&#34;animatedZooms&#34;:false,&#34;mobileDisableYTouch&#34;:true,&#34;disableZoom&#34;:false,&#34;legend&#34;:&#34;auto&#34;,&#34;labelsDivWidth&#34;:250,&#34;labelsShowZeroValues&#34;:true,&#34;labelsSeparateLines&#34;:true,&#34;hideOverlayOnMouseOut&#34;:true},&#34;scale&#34;:&#34;yearly&#34;,&#34;annotations&#34;:[],&#34;shadings&#34;:[],&#34;events&#34;:[],&#34;format&#34;:&#34;date&#34;,&#34;data&#34;:[[&#34;1997-11-01T00:00:00.000Z&#34;,&#34;1998-11-01T00:00:00.000Z&#34;,&#34;1999-11-01T00:00:00.000Z&#34;,&#34;2000-11-01T00:00:00.000Z&#34;,&#34;2001-11-01T00:00:00.000Z&#34;,&#34;2002-11-01T00:00:00.000Z&#34;,&#34;2003-11-01T00:00:00.000Z&#34;,&#34;2004-11-01T00:00:00.000Z&#34;,&#34;2005-11-01T00:00:00.000Z&#34;,&#34;2006-11-01T00:00:00.000Z&#34;,&#34;2007-11-01T00:00:00.000Z&#34;,&#34;2008-11-01T00:00:00.000Z&#34;,&#34;2009-11-01T00:00:00.000Z&#34;,&#34;2010-11-01T00:00:00.000Z&#34;,&#34;2011-11-01T00:00:00.000Z&#34;,&#34;2012-11-01T00:00:00.000Z&#34;,&#34;2013-11-01T00:00:00.000Z&#34;,&#34;2014-11-01T00:00:00.000Z&#34;,&#34;2015-11-01T00:00:00.000Z&#34;,&#34;2016-11-01T00:00:00.000Z&#34;,&#34;2017-11-01T00:00:00.000Z&#34;,&#34;2018-11-01T00:00:00.000Z&#34;],[1,9,0,10,18,20,31,41,47,54,35,23,28,32,29,23,30,35,37,38,null,null],[null,null,null,null,37,34,43,46,41,49,32,37,47,42,37,30,17,28,40,31,23,19]],&#34;fixedtz&#34;:false,&#34;tzone&#34;:&#34;UTC&#34;},&#34;evals&#34;:[&#34;attrs.interactionModel&#34;],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>An example journal article</title>
+      <link>/publication/journal-article/</link>
+      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/publication/journal-article/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Financial Metrics Visual Model</title>
+      <link>/project/financial-metrics-visual-model/</link>
+      <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+      <guid>/project/financial-metrics-visual-model/</guid>
+      <description>&lt;p&gt;The Financial Metrics Visual Model is a tool designed to help MITRE leadership understand the impact of their decisions on high-level MITRE financial metrics. Working with members of the MITRE Finance department, I created a interactive system dynamics model that will allow the user to adjust high level inputs to see how they impact both MITRE financial metrics and other intermediate values used in calculating those metrics.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Strategic Workforce Model</title>
+      <link>/project/strategic-workforce-model/</link>
+      <pubDate>Wed, 01 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>/project/strategic-workforce-model/</guid>
+      <description>&lt;p&gt;The Strategic Workforce Modeling project focuses on hiring goals directors set for their division to project out what their staff will project to be in five years. Working in AnyLogic, I&amp;rsquo;ve updated the Agent Based Model to be more efficient, account for additional staff behavior, and produce data for Tableau. The Tableau workbook blends model outputs together to create a dashboard for directors to understand the impact of their hiring policies and the uncertainty of what their staff levels will look like over the next five years.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Real Time Predictive Modeling</title>
+      <link>/project/realtime-predictive-modeling/</link>
+      <pubDate>Wed, 01 Jan 2014 00:00:00 +0000</pubDate>
+      <guid>/project/realtime-predictive-modeling/</guid>
+      <description>&lt;p&gt;Worked directly with a client to design data sources that allow for real time modeling and scoring. Led a team of statisticians to consolidate knowledge and design best practices in advanced modeling techniques for near real time model building.&lt;/p&gt;
+
+&lt;p&gt;Designed a methodology to detect and predict client behavior patterns. Results of this methodology are intended to influence real-time marketing decisions to improve response rates.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>An example conference paper</title>
+      <link>/publication/conference-paper/</link>
+      <pubDate>Mon, 01 Jul 2013 00:00:00 +0000</pubDate>
+      <guid>/publication/conference-paper/</guid>
+      <description>&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Cite&lt;/em&gt; button above to demo the feature to enable visitors to import publication metadata into their reference management software.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class=&#34;alert alert-note&#34;&gt;
+  &lt;div&gt;
+    Click the &lt;em&gt;Slides&lt;/em&gt; button above to demo Academic&amp;rsquo;s Markdown slides feature.
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Supplementary notes can be added here, including &lt;a href=&#34;https://sourcethemes.com/academic/docs/writing-markdown-latex/&#34; target=&#34;_blank&#34;&gt;code and math&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MLB Player Similarity</title>
+      <link>/project/mlb-player-similarity/</link>
+      <pubDate>Sat, 01 Jun 2013 00:00:00 +0000</pubDate>
+      <guid>/project/mlb-player-similarity/</guid>
+      <description>&lt;p&gt;Using a combination of dynamic programming and social network analysis, I compare a player&amp;rsquo;s career stats against other players to figure out who are the most similar. After determining which players are similar, I use various social network analysis techniques to be able to cluster and categorize players.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Sentiment Analysis for specific Brand/Products</title>
+      <link>/project/sentiment-analysis/</link>
+      <pubDate>Tue, 01 Jan 2013 00:00:00 +0000</pubDate>
+      <guid>/project/sentiment-analysis/</guid>
+      <description>&lt;p&gt;Analyze social media (Twitter) to determine sentiment around a client&amp;rsquo;s brand and specific products. Using R, analyzed tweets to determine shifts in sentiment over time about a client&amp;rsquo;s brand and general effectiveness of customer service. Produced visualizations through R and Tableau to help executives understand the sentiment analysis results.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Customer Attrition Analysis</title>
+      <link>/project/customer-attrition-analysis/</link>
+      <pubDate>Sat, 01 Dec 2012 00:00:00 +0000</pubDate>
+      <guid>/project/customer-attrition-analysis/</guid>
+      <description>&lt;p&gt;I worked with team members to build a Bayesian Belief Network (BBN) on large data sources in Netezza to predict the likelihood of a person closing an account with our client. I compared the BBN model results against Logistic Regression to determine best modeling approach. The results showed that the Logistic Regression approach provided more accurate results, but required more resources to get that result.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>JIEDDO - Operations Research and Systems Analysis Support</title>
+      <link>/project/jieddo/</link>
+      <pubDate>Tue, 01 Mar 2011 00:00:00 +0000</pubDate>
+      <guid>/project/jieddo/</guid>
+      <description>&lt;p&gt;I support JIEDDO using various analytical techniques including Analytic Hierarchy Process (AHP) and Regression Analysis. I created and tested a metric to help support decision making for various groups of people working with JIEDDO. I transferred complicated projects in EXCEL and ACCESS to SAS, improving the run-time and product quality. I created SAS Stored Processes to help streamline report generation, support business intelligence, and produce high quality graphics for all customers. I wrote a process to clean raw data and format the data using regular expression parsing on ingest of the data feeds. I integrated a process to parse XML files and create new databases from the results, making new sources of data available for a multitude of colleagues. I designed a database to enhance reporting and help determine an optimal solution to a resource allocation problem.&lt;/p&gt;
+
+&lt;p&gt;Image: US soldiers examine evidence at an IED training site at the National Training Center at Fort Irwin, California, US.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Healthcare Claims Fraud</title>
+      <link>/project/aetna/</link>
+      <pubDate>Mon, 01 Nov 2010 00:00:00 +0000</pubDate>
+      <guid>/project/aetna/</guid>
+      <description>&lt;p&gt;Worked with a team to determine the best use of IBM’s analytical skills to help Aetna improve their business. Modified a SAS multiplicative regression model to be more flexible with data and improve efficiency. Determine the important factors in improving care management efficiency for existing programs at Aetna.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Optimizing Team Assignments</title>
+      <link>/project/nvss/</link>
+      <pubDate>Sun, 01 Aug 2010 00:00:00 +0000</pubDate>
+      <guid>/project/nvss/</guid>
+      <description>&lt;p&gt;The teams in the Northern Virginia Senior Softball (NVSS) league are reorganized every year with the desire to make them as even as possible and promote social interactions. This project’s goals were to develop a methodology to produce team assignments for players such that the teams are equal in regards to player ability and other attributes. Multiple regression was employed to obtain offensive, defensive, and team metrics. An integer program (IP) model was developed where constraints were aligned with the goals of the NVSS league to solve the assignment problem. The IP model was linked to a team assignment tool which allows the user to select settings and parameters before running the model.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Port Operations Analysis for PNNL</title>
+      <link>/project/pnnl/</link>
+      <pubDate>Wed, 01 Jul 2009 00:00:00 +0000</pubDate>
+      <guid>/project/pnnl/</guid>
+      <description>&lt;p&gt;Using AnyLogic to build a combined Discrete Event / Agent Based model to determine the effects of introducing delays to a seaport&amp;rsquo;s operations. Build reports given the results of a sensitivity analysis or Monte Carlo run version of the model. Compiled an applet version of the model and combined with an HTML interface to supply to the customer.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Transit Risk and Assessment Methodology</title>
+      <link>/project/tram/</link>
+      <pubDate>Sat, 01 Jul 2006 00:00:00 +0000</pubDate>
+      <guid>/project/tram/</guid>
+      <description>&lt;p&gt;Served as the data manager for analysis of counter-terrorism defense measures in place for several mass transit systems under the Transit Risk Assessment Module (TRAM). Assisted in recording data at meetings and on-site visits. Track changes to and finalize documents for delivery to the customer. Performed cost-benefit analysis (CBA) for several jurisdictions using the Risk Management Tool (RMT). Prepared materials for TRAM workshops and adjusted data during the workshops to provide accurate results. Aided as the CBA specialist during the TRAM workshops. Instructed on proper use of the RMT software.&lt;/p&gt;
+
+&lt;p&gt;Updated the TRAM methodology to include multi-hazards and aggregated decision tactics. Built the new methodology into EXCEL through worksheet functions and VBA.&lt;/p&gt;
+
+&lt;p&gt;Using specific projects developed by Port Authority of New York and New Jersey (PANYNJ), adjusted pieces of the risk formula and calculated a ten year lifecycle cost in order to analyze and update the priority of projects to be implemented. Developed a specialized toolkit in EXCEL to run a cost benefit analysis and select optimal points using a pareto frontier.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Statistical Analysis of Defensive Production in Major League Baseball</title>
+      <link>/project/mqp/</link>
+      <pubDate>Thu, 01 Jun 2006 00:00:00 +0000</pubDate>
+      <guid>/project/mqp/</guid>
+      <description>&lt;p&gt;While many statistical measures have been devised to measure team and player performance in professional baseball, relatively little work has been done to study and improve measures of defensive performance. This project’s goals were to model defensive contribution to team performance and develop related measures of individual player defensive production. Factor analysis was employed to extract positional factors and combine them with pitching and offensive measures into a final logistic regression model to determine effects of defense on team performance.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>NASA - Probabilistic Campaign Manifest Analysis Tool</title>
+      <link>/project/pcmat/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/project/pcmat/</guid>
+      <description>&lt;p&gt;Probabilistic Campaign Manifest Analysis Tool (PCMAT) was an excel based tool that would take in a manifest for a lunar campaign and run a simulation to evaluate various metrics about the campaign. I updated and expanded the capabilities of the this tool to track new metrics and increase the number of Bernoulli trials run within the course of a campaign. In addition, I improved the efficiency of the model through VBA and advanced EXCEL worksheet formulas.&lt;/p&gt;
+
+&lt;p&gt;Our team&amp;rsquo;s effort on this work was acknowledged in the &amp;ldquo;&lt;a href=&#34;http://www.nasa.gov/pdf/396093main_HSF_Cmte_FinalReport.pdf&#34;&gt;SEEKING A HUMAN SPACEFLIGHT PROGRAM WORTHY OF A GREAT NATION&lt;/a&gt;&amp;rdquo; report to Congress.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
